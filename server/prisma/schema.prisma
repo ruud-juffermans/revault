@@ -1,0 +1,52 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum IntakeStatus {
+  NEW
+  ASSESSED
+  VIABLE
+  NOT_VIABLE
+  AGREEMENT
+  RECOVERY
+  CLOSED
+}
+
+model Intake {
+  id             String       @id @default(cuid())
+  reference      String       @unique
+  name           String
+  email          String
+  phone          String?
+  walletType     String
+  walletSoftware String?
+  issueType      String
+  estimatedValue String?
+  description    String
+  locale         String
+  status         IntakeStatus @default(NEW)
+  notes          String?
+  ip             String?
+  userAgent      String?
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+
+  @@index([status, createdAt])
+}
+
+model PageView {
+  id        String   @id @default(cuid())
+  path      String
+  locale    String?
+  referrer  String?
+  userAgent String?
+  createdAt DateTime @default(now())
+
+  @@index([createdAt])
+  @@index([path])
+}

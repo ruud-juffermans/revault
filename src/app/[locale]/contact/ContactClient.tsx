@@ -14,7 +14,7 @@ const ISSUE_TYPES: IssueType[] = ["forgotten-password", "seed-phrase", "damaged-
 export default function ContactClient() {
   const t = useTranslations("contact");
   const locale = useLocale();
-  const [form, setForm] = useState({ name: "", email: "", phone: "", walletType: "" as WalletType | "", walletSoftware: "", issueType: "" as IssueType | "", estimatedValue: "", description: "", consent: false });
+  const [form, setForm] = useState({ name: "", email: "", phone: "", walletType: "" as WalletType | "", walletSoftware: "", issueType: "" as IssueType | "", estimatedValue: "", description: "", consent: false, website: "" });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [reference, setReference] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
@@ -39,6 +39,7 @@ export default function ContactClient() {
         description: form.description,
         locale,
         consent: true,
+        website: form.website || undefined,
       };
       const res = await submitIntake(body);
       setReference(res.reference);
@@ -69,6 +70,8 @@ export default function ContactClient() {
               <Box component="form" onSubmit={handleSubmit}>
                 <Alert severity="warning" sx={{ mb: 3 }}>{t("form.secretWarning")}</Alert>
                 {status === "error" && <Alert severity="error" sx={{ mb: 3 }}>{errorMsg}</Alert>}
+                {/* Honeypot: hidden from humans and screen readers; bots that fill it are dropped server-side. */}
+                <input type="text" name="website" value={form.website} onChange={set("website")} tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }} />
                 <Box sx={{ display: "grid", gap: 3, gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" } }}>
                   <TextField label={t("form.name")} required fullWidth value={form.name} onChange={set("name")} />
                   <TextField label={t("form.email")} type="email" required fullWidth value={form.email} onChange={set("email")} />

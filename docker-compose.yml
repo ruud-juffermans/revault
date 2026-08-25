@@ -1,16 +1,13 @@
-# revault.nl is a CLIENT-ONLY deployment (the Next.js site). Its backend (the
-# intake form + page-view analytics + admin API) lives in the shared platform
-# server (../ruudjuffermans-server → api.ruudjuffermans.nl) as the "revault"
-# module.
+# Production stack for revault.nl: the Next.js site, the API (server/) and
+# Postgres. Traefik (Dokploy) routes revault.nl → site and api.revault.nl →
+# server; the browser calls the API cross-origin (CORS_ORIGINS).
 services:
-  client:
+  site:
     build:
       context: .
       dockerfile: Dockerfile
       args:
-        # Baked into the client at build time; the browser calls the platform
-        # API cross-origin (its CORS allowlists this site's origin).
-        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-https://api.ruudjuffermans.nl}
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-https://api.revault.nl}
         NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-https://revault.nl}
     environment:
       - NEXT_PUBLIC_SITE_URL=${NEXT_PUBLIC_SITE_URL:-https://revault.nl}
@@ -22,7 +19,54 @@ services:
     networks:
       - dokploy-network
 
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    environment:
+      - NODE_ENV=production
+      - PORT=4000
+      - DATABASE_URL=postgresql://revault:${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD}@db:5432/revault
+      - CORS_ORIGINS=${NEXT_PUBLIC_SITE_URL:-https://revault.nl}
+      - ADMIN_SERVICE_TOKEN=${ADMIN_SERVICE_TOKEN:?set ADMIN_SERVICE_TOKEN}
+      - INTAKE_EMAIL=${INTAKE_EMAIL:?set INTAKE_EMAIL}
+      - MAIL_FROM=${MAIL_FROM:-Revault <noreply@revault.nl>}
+      - SMTP_HOST=${SMTP_HOST:-}
+      - SMTP_PORT=${SMTP_PORT:-587}
+      - SMTP_USER=${SMTP_USER:-}
+      - SMTP_PASS=${SMTP_PASS:-}
+      # One hop: Traefik.
+      - TRUST_PROXY=1
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - dokploy-network
+      - internal
+
+  db:
+    image: postgres:17-alpine
+    environment:
+      - POSTGRES_DB=revault
+      - POSTGRES_USER=revault
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U revault -d revault"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    restart: unless-stopped
+    networks:
+      - internal
+
+volumes:
+  pgdata:
+
 networks:
-  # Dokploy's proxy network; Traefik routes revault.nl (and www) here.
+  # Dokploy's proxy network; Traefik routes revault.nl / api.revault.nl here.
   dokploy-network:
     external: true
+  internal:

@@ -1,0 +1,18 @@
+# Local development: just Postgres. Run the site and server on the host:
+#   docker compose -f docker-compose.dev.yml up -d
+#   (cd server && npm run dev)   # :4000
+#   npm run dev                  # :3001
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      - POSTGRES_DB=revault
+      - POSTGRES_USER=revault
+      - POSTGRES_PASSWORD=revault
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata-dev:/var/lib/postgresql/data
+
+volumes:
+  pgdata-dev:

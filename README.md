@@ -2,15 +2,13 @@
 
 Non-custodial crypto wallet recovery service (the Dutch/English counterpart to
 cryptoherstel.nl / cryptorecovers.com): a bilingual Next.js marketing site with
-service and wallet landing pages, a secret-free intake form, and an MDX blog.
-Live at [revault.nl](https://revault.nl) (planned).
+service and wallet landing pages, a secret-free intake form, and an MDX blog,
+plus a small Express API (`server/`) for intake submissions, page-view
+analytics and their admin endpoints. Live at [revault.nl](https://revault.nl)
+(planned).
 
-**Client-only deployment.** The backend (intake submissions, page-view
-analytics and their admin API) lives in
-[`ruudjuffermans-server`](https://github.com/ruud-juffermans/ruudjuffermans-server)
-— the shared platform API at `api.ruudjuffermans.nl` — as its `revault`
-module. This site has no user accounts; its API calls are anonymous and
-rate-limited server-side.
+The site has no user accounts; its API calls are anonymous and rate-limited
+server-side.
 
 See [`docs/PRD.md`](docs/PRD.md) for the product requirements.
 
@@ -19,8 +17,8 @@ See [`docs/PRD.md`](docs/PRD.md) for the product requirements.
 | Layer    | Technology |
 | -------- | ---------- |
 | Frontend | Next.js 15 (App Router), React 19, Material UI 6, next-intl, MDX |
-| Backend  | `ruudjuffermans-server` — Express + Prisma, `revault` module |
-| Tooling  | TypeScript, Docker / Docker Compose, GitHub Actions |
+| Backend  | Express 5, Prisma 6, Postgres 17, Zod, Nodemailer (`server/`) |
+| Tooling  | TypeScript, Vitest, Docker / Docker Compose, GitHub Actions |
 
 ## Project structure
 
@@ -33,21 +31,34 @@ See [`docs/PRD.md`](docs/PRD.md) for the product requirements.
 │   ├── components/      # Header, Footer, TrustStrip, Steps, Faq, …
 │   ├── lib/             # api (intake + analytics), seo, content, services
 │   └── theme/           # MUI theme with light/dark CSS-variable palette
+├── server/              # API: Express + Prisma
+│   ├── prisma/          # schema + migrations
+│   ├── src/routes/      # intake, analytics, admin
+│   ├── src/lib/         # validation, secret detection, mail, references
+│   └── test/            # Vitest (no database needed)
 ├── docs/PRD.md          # Product requirements
-├── .env.example         # Env template
+├── .env.example         # Env template for docker compose
 ├── Dockerfile           # Standalone Next.js image
-└── docker-compose.yml   # Production stack: client-only Next.js image
+├── docker-compose.yml   # Production stack: site + server + postgres
+└── docker-compose.dev.yml  # Local Postgres only
 ```
 
 ## Local development
 
 ```bash
-# 1. API — in ../ruudjuffermans-server (see its README):
-docker compose -f docker-compose.dev.yml up -d && npm run dev   # :4000
+# 1. Postgres
+docker compose -f docker-compose.dev.yml up -d
 
-# 2. This site (repo root):
+# 2. API
+cd server
+cp .env.example .env            # defaults match the dev Postgres above
 npm install
-npm run dev                                                     # :3001
+npx prisma migrate deploy
+npm run dev                     # :4000  (emails are logged to stdout without SMTP_HOST)
+
+# 3. Site (repo root)
+npm install
+npm run dev                     # :3001
 ```
 
 With `NEXT_PUBLIC_API_URL` unset (the dev default) the browser calls
@@ -61,21 +72,36 @@ server on `:4000`.
 
 ## Deployment
 
-`docker-compose.yml` builds the standalone Next.js image (build args bake
-`NEXT_PUBLIC_API_URL` and the site URL in) on the external `dokploy-network`;
-Traefik routes `revault.nl` (and `www.`, which the app 308-redirects to the
-apex) to it.
+`docker-compose.yml` runs three services on the external `dokploy-network`:
+`site` (standalone Next.js image; build args bake `NEXT_PUBLIC_API_URL` and
+the site URL in), `server` (runs `prisma migrate deploy` on start) and `db`
+(Postgres 17 on a named volume). Traefik routes `revault.nl` (and `www.`,
+which the app 308-redirects to the apex) to `site` and `api.revault.nl` to
+`server`. Required env: `POSTGRES_PASSWORD`, `ADMIN_SERVICE_TOKEN`,
+`INTAKE_EMAIL`, plus `SMTP_*` to actually send mail (see `.env.example`).
 
-## API (served by ruudjuffermans-server, `revault` module)
+## API (`server/`)
 
-| Method | Endpoint                          | Description |
-| ------ | --------------------------------- | ----------- |
-| `POST` | `/api/revault/intake`             | Submit the intake form → `{ success, reference }` |
-| `POST` | `/api/revault/analytics`          | Page-view beacon |
-| *      | `/api/revault/admin/…`            | Intake management (service token or platform admin) |
+| Method  | Endpoint                                   | Description |
+| ------- | ------------------------------------------ | ----------- |
+| `POST`  | `/api/revault/intake`                      | Submit the intake form → `201 { success, reference }`; `422 { code: "secret:…" }` if it contains a seed phrase / private key |
+| `POST`  | `/api/revault/analytics`                   | Page-view beacon → `204` |
+| `GET`   | `/api/revault/admin/intakes?status=&limit=&offset=` | List intakes |
+| `GET`   | `/api/revault/admin/intakes/:reference`    | One intake |
+| `PATCH` | `/api/revault/admin/intakes/:reference`    | `{ status?, notes? }` — status: NEW → ASSESSED → VIABLE / NOT_VIABLE → AGREEMENT → RECOVERY → CLOSED |
+| `GET`   | `/api/revault/admin/analytics/summary?days=30` | Views per path |
+| `GET`   | `/health`                                  | Liveness |
 
-The intake endpoint validates with Zod, rejects anything that looks like a
-seed phrase or private key (see PRD §7), and is rate limited per IP.
+Admin routes take `Authorization: Bearer $ADMIN_SERVICE_TOKEN`. The intake
+endpoint validates with Zod, drops honeypot submissions, rejects anything that
+looks like a seed phrase (≥ 8 consecutive BIP-39 words) or a private key (hex,
+WIF, xprv, keystore JSON — see PRD §7), is rate limited to 5 per IP per 15
+minutes, and emails a notification to `INTAKE_EMAIL` plus a localized
+auto-reply to the visitor.
+
+```bash
+cd server && npm test        # Vitest, mocked Prisma — no database needed
+```
 
 ## License
 

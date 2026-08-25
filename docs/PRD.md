@@ -5,7 +5,7 @@
 | **Product** | revault.nl — non-custodial crypto wallet recovery service |
 | **Owner** | Ruud Juffermans |
 | **Status** | Draft v0.1 — 25 August 2026 |
-| **Repo** | `revault/` (Next.js site) + `ruudjuffermans-server` (`revault` module) |
+| **Repo** | `revault/` — Next.js site (root) + Express API (`server/`) |
 
 ---
 
@@ -37,8 +37,8 @@ funds, fully lost seed) before they waste their time.
    ("ledger wallet herstel", "wallet.dat password recovery", "jaxx liberty
    recovery").
 4. **Reuse the ruudjuffermans.nl platform architecture** so the site is cheap
-   to run and maintain: client-only Next.js on Dokploy, backend as a module
-   in the shared platform server.
+   to run and maintain: Next.js + a small Express/Prisma API + Postgres on
+   Dokploy, all in this repo.
 
 ### Non-goals (v1)
 - No stolen-fund / scam recovery, transaction tracing or investigations. The
@@ -156,15 +156,15 @@ Fields (`lib/api.ts` → `IntakeBody`):
 | consent | yes | verification + privacy acknowledgement |
 | locale | auto | for reply language |
 
-Server (`ruudjuffermans-server`, `revault` module — **to be built**):
+Server (`server/`):
 - `POST /api/revault/intake` → Zod validation, rate limit 5/IP/15 min,
   honeypot field, **reject** submissions whose description matches a
   BIP-39 phrase pattern (≥ 8 consecutive wordlist words) or a private-key /
   WIF pattern, with a clear error telling the user not to send secrets.
-- Persist to Postgres (`RevaultIntake`), email notification to
+- Persist to Postgres (`Intake`), email notification to
   `INTAKE_EMAIL`, auto-reply to the visitor in their locale with a reference
   (`RV-YYYYMM-XXXX`) and the "don't touch your devices" advice.
-- `GET/PATCH /api/revault/admin/intakes` behind the platform service token
+- `GET/PATCH /api/revault/admin/intakes` behind `ADMIN_SERVICE_TOKEN`
   (status: new → assessed → viable / not-viable → agreement → recovery →
   closed).
 - `POST /api/revault/analytics` mirrors the website module's beacon.
@@ -195,19 +195,18 @@ keeps the form contents.
 
 ## 10. Architecture
 
-Mirrors `ruudjuffermans.nl`:
-
 ```
 Browser ──► revault.nl (Next.js standalone, Docker, Traefik/Dokploy)
               │  NEXT_PUBLIC_API_URL baked at build time
               ▼
-          api.ruudjuffermans.nl  (ruudjuffermans-server, Express + Prisma)
-              └── revault module: intake, analytics, admin
+          api.revault.nl  (server/: Express 5 + Prisma 6)
+              ├── intake, analytics, admin routes
+              └── Postgres 17 (docker compose `db`, named volume)
 ```
 
-- The Next.js app at the repo root is the only deployable here. Dev proxies `/api/*` to
-  `localhost:4000` via a Next rewrite; prod calls the API cross-origin (CORS
-  allowlist on the server).
+- Site (root) and API (`server/`) are separate images from one compose file.
+  Dev proxies `/api/*` to `localhost:4000` via a Next rewrite; prod calls the
+  API cross-origin (`CORS_ORIGINS` on the server).
 - Theme: same MUI CSS-variable pattern as the reference site, re-skinned
   (graphite + amber "key" accent, Plus Jakarta Sans / Outfit).
 - Copy-driven pages: page components are thin; all text is in
@@ -218,7 +217,7 @@ Browser ──► revault.nl (Next.js standalone, Docker, Traefik/Dokploy)
 | # | Milestone | Scope | Exit criteria |
 |---|---|---|---|
 | M0 | **Scaffold** (this commit) | Repo, theme, routing, all pages with real NL/EN copy, intake UI, blog with one post, CI, Docker. | `tsc` + `next build` green. |
-| M1 | Backend | `revault` module in ruudjuffermans-server: intake + analytics + admin, secret-pattern rejection, emails. | Form submits end-to-end in dev; rate limit + rejection tests. |
+| M1 | Backend | `server/`: intake + analytics + admin, secret-pattern rejection, emails. | Form submits end-to-end in dev; rate limit + rejection tests. |
 | M2 | Legal & identity | KvK registration, address, phone, real privacy/terms reviewed, service agreement + NDA templates. | Footer shows real KvK; contact aside shows phone/email. |
 | M3 | Launch | Domain, Dokploy service, DNS, Search Console, OG images, 3 more blog posts. | Live, indexed, first intake received. |
 | M4 | Proof | Real testimonials, case write-ups (anonymised), Google Business profile. | Reviews section enabled on home. |

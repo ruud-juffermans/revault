@@ -15,7 +15,7 @@ const nextConfig: NextConfig = {
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data: blob:",
       "font-src 'self'",
-      `connect-src 'self' ${process.env.NEXT_PUBLIC_API_URL || "https://api.ruudjuffermans.nl"}`,
+      `connect-src 'self' ${process.env.NEXT_PUBLIC_API_URL || "https://api.revault.nl"}`,
       "object-src 'none'",
       "base-uri 'self'",
       "form-action 'self'",
@@ -53,8 +53,8 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return [
       // Dev convenience: with NEXT_PUBLIC_API_URL unset the browser calls
-      // same-origin /api/*, which this rewrite proxies to the local platform
-      // server on :4000. Production bakes the absolute API origin in instead.
+      // same-origin /api/*, which this rewrite proxies to the local server
+      // (server/) on :4000. Production bakes the absolute API origin in instead.
       {
         source: "/api/:path*",
         destination: `${process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000"}/api/:path*`,

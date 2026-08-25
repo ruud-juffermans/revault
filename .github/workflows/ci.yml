@@ -1,5 +1,5 @@
-# Typecheck + production build of the Next.js site. Node version comes from
-# .nvmrc, which is kept on the same major as Dockerfile.
+# Site: typecheck + production build. Server: typecheck + tests. Node version
+# comes from .nvmrc, which is kept on the same major as both Dockerfiles.
 name: CI
 
 on:
@@ -8,7 +8,7 @@ on:
   pull_request:
 
 jobs:
-  build:
+  site:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -20,3 +20,20 @@ jobs:
       - run: npm ci
       - run: npx tsc --noEmit
       - run: npm run build
+
+  server:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: server
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: server/package-lock.json
+      - run: npm ci
+      - run: npx prisma generate
+      - run: npm run typecheck
+      - run: npm test

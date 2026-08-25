@@ -1,7 +1,6 @@
-// The platform API (ruudjuffermans-server, api.ruudjuffermans.nl) — this
-// site's backend is its "revault" module. Production bakes the absolute origin
-// in at build time; in dev this stays "" and the Next rewrite proxies /api/*
-// to the local platform server (see next.config.ts).
+// The revault API (server/ in this repo). Production bakes the absolute
+// origin in at build time; in dev this stays "" and the Next rewrite proxies
+// /api/* to the local server on :4000 (see next.config.ts).
 export const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
 
 async function request<T>(endpoint: string, options?: RequestInit): Promise<T> {
@@ -43,6 +42,8 @@ export interface IntakeBody {
   description: string;
   locale: string;
   consent: true;
+  /** Honeypot — must stay empty; the server drops submissions that fill it. */
+  website?: string;
 }
 
 export async function submitIntake(body: IntakeBody) {
