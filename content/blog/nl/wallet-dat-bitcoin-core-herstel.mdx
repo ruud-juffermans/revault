@@ -1,0 +1,34 @@
+---
+title: "wallet.dat gevonden: wat er te herstellen valt uit een oude Bitcoin Core wallet"
+date: "2026-08-24"
+excerpt: "Een wallet.dat uit 2013 is geen verloren zaak. Wat het bestand bevat, waarom een wachtwoord zo vaak het probleem is, en wat er wél en niet kan."
+tags: ["bitcoin core", "wallet.dat", "wachtwoord"]
+---
+
+Van alle materiaal dat bij ons op tafel komt, is `wallet.dat` het meest voorkomende. Het bestand dat Bitcoin Core (en vroeger Bitcoin-Qt) aanmaakt, staat vaak nog op een oude laptop of externe schijf uit de jaren 2011–2016. Wie het terugvindt, heeft doorgaans één van drie problemen.
+
+## Wat er in een wallet.dat zit
+
+Het bestand is een Berkeley DB-database met daarin de privésleutels van uw adressen, uw transactiegeschiedenis en — sinds versie 0.4 optioneel, later standaard — een versleuteling van die sleutels met een wachtwoord dat u zelf koos. Belangrijk: het saldo staat *niet* in het bestand. Dat staat op de blockchain. Het bestand bevat alleen de sleutels om erbij te kunnen.
+
+Dat betekent twee dingen. Ten eerste: u kunt met een publiek adres uit het bestand (of uit een oude e-mail of transactie) altijd zelf controleren of er nog iets op staat. Ten tweede: een wallet.dat die niet meer "synchroniseert" of een blockchain die niet meer downloadt, is geen herstelprobleem. Dat is een softwareprobleem, en het lost zich meestal op met een actuele versie van Bitcoin Core en geduld.
+
+## Probleem 1: het wachtwoord
+
+Verreweg de meest voorkomende situatie. Het bestand is intact, de wallet opent, maar het versleutelingswachtwoord is weg. Bitcoin Core gebruikt een bewust traag sleutelafleidingsschema, dus willekeurig gokken werkt niet. Wat wél werkt, is gericht zoeken: op basis van de wachtwoorden die u in die periode gebruikte, uw vaste patronen (hoofdletter vooraan, jaartal achteraan, een leesteken), typefouten en varianten. Hoe meer u zich herinnert, hoe kleiner de zoekruimte en hoe groter de kans. Daarom vragen we in de intake uitgebreid naar uw wachtwoordgewoonten — en nooit naar het wachtwoord zelf.
+
+## Probleem 2: het bestand is beschadigd
+
+Een schijf met slechte sectoren, een afgebroken kopie, een bestand dat door een "reparatie" is overschreven. Bitcoin Core meldt dan dat de wallet corrupt is. In veel gevallen zijn de sleutels nog aanwezig in het bestand, ook als de database-structuur eromheen kapot is. Die sleutels zijn terug te halen zonder het bestand te "repareren" — wat u vooral niet zelf moet proberen, omdat elke schrijfactie naar het bestand of de schijf de kans verkleint.
+
+## Probleem 3: het is een oude, niet-deterministische wallet
+
+Bitcoin Core-wallets van vóór versie 0.13 (2016) zijn niet HD: er is geen herstelzin, elk adres heeft een eigen sleutel, en het programma maakte vooraf een pool van 100 reserve-sleutels aan. Een back-up van vóór het moment dat die pool op was, mist de latere adressen. Dit is de reden dat "ik heb een back-up" soms niet betekent "ik heb alle sleutels". Het vraagt om zorgvuldig vergelijken van bestand, transactiegeschiedenis en blockchain voordat iemand kan zeggen wat er te herstellen is.
+
+## Wat niet kan
+
+Een wallet.dat die daadwerkelijk overschreven is met andere data, waarvan alleen een lege of nieuwe versie is gevonden, of waarvan de schijf fysiek onleesbaar is zonder gespecialiseerd datarecoverylab, is buiten ons bereik. En als het saldo in 2014 al is verplaatst, is er niets te herstellen — een explorer laat dat in tien seconden zien.
+
+## Hoe u begint
+
+Raak het bestand niet aan, zet de oude laptop niet aan "om te kijken", en beschrijf in de [intake](/contact) wat u heeft: welk apparaat, welke versie van Bitcoin Core u ongeveer gebruikte, of het bestand opent, en wat u nog weet van uw wachtwoorden uit die tijd. Op basis daarvan hoort u eerlijk of het kansrijk is, en wat de volgende stap is. Betalen doet u pas als u weer bij uw bitcoin kunt.

@@ -3,7 +3,7 @@ import { Box } from "@mui/material";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Locale } from "@/i18n/routing";
-import { buildAlternates, buildOpenGraph } from "@/lib/seo";
+import { buildAlternates, buildOpenGraph, SITE_URL, absoluteUrl } from "@/lib/seo";
 import { WALLET_SLUGS, WALLET_SERVICES, isWalletSlug } from "@/lib/services";
 import PageHero from "@/components/PageHero";
 import Section from "@/components/Section";
@@ -11,6 +11,7 @@ import ServiceCard from "@/components/ServiceCard";
 import TrustStrip from "@/components/TrustStrip";
 import CtaBand from "@/components/CtaBand";
 import PageViewTracker from "@/components/PageViewTracker";
+import JsonLd from "@/components/JsonLd";
 
 type Params = { params: Promise<{ locale: Locale; slug: string }> };
 
@@ -40,6 +41,17 @@ export default async function WalletPage({ params }: Params) {
   return (
     <>
       <PageViewTracker path={`/wallets/${slug}`} locale={locale} />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: t(`${slug}.title`),
+          description: t(`${slug}.metaDescription`),
+          serviceType: WALLET_SERVICES[slug].map((s) => ts(`${s}.name`)),
+          provider: { "@type": "Organization", name: "Revault", url: SITE_URL },
+          url: absoluteUrl("/wallets/[slug]", locale, { slug }),
+        }}
+      />
       <PageHero eyebrow={t("eyebrow")} title={t(`${slug}.title`)} subtitle={t(`${slug}.intro`)} />
       <TrustStrip />
       <Section title={t("relatedTitle")}>

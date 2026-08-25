@@ -1,0 +1,34 @@
+---
+title: "Found a wallet.dat: what can be recovered from an old Bitcoin Core wallet"
+date: "2026-08-24"
+excerpt: "A wallet.dat from 2013 is not a lost cause. What the file contains, why the password is so often the problem, and what can and cannot be done."
+tags: ["bitcoin core", "wallet.dat", "password"]
+---
+
+Of all the material that lands on our desk, `wallet.dat` is the most common. The file created by Bitcoin Core (and Bitcoin-Qt before it) often still sits on an old laptop or external drive from 2011–2016. Whoever finds it usually has one of three problems.
+
+## What a wallet.dat contains
+
+The file is a Berkeley DB database holding the private keys of your addresses, your transaction history and — optional since version 0.4, later the default — an encryption of those keys with a password you chose yourself. Important: the balance is *not* in the file. That lives on the blockchain. The file only holds the keys to reach it.
+
+That means two things. First: with a public address from the file (or from an old email or transaction) you can always check for yourself whether anything is still there. Second: a wallet.dat that no longer "syncs", or a blockchain that won't finish downloading, is not a recovery problem. It is a software problem, and it usually resolves with a current version of Bitcoin Core and patience.
+
+## Problem 1: the password
+
+By far the most common situation. The file is intact, the wallet opens, but the encryption password is gone. Bitcoin Core uses a deliberately slow key-derivation scheme, so random guessing doesn't work. What does work is targeted search: based on the passwords you used in that period, your fixed patterns (capital at the front, year at the end, a punctuation mark), typos and variants. The more you remember, the smaller the search space and the better the odds. That is why the intake asks extensively about your password habits — and never for the password itself.
+
+## Problem 2: the file is damaged
+
+A drive with bad sectors, an interrupted copy, a file overwritten by a "repair". Bitcoin Core then reports that the wallet is corrupt. In many cases the keys are still present in the file even when the database structure around them is broken. Those keys can be extracted without "repairing" the file — which is exactly what you should not attempt yourself, because every write to the file or the drive reduces the odds.
+
+## Problem 3: it is an old, non-deterministic wallet
+
+Bitcoin Core wallets from before version 0.13 (2016) are not HD: there is no seed phrase, every address has its own key, and the program pre-generated a pool of 100 reserve keys. A backup made before that pool ran out is missing the later addresses. This is why "I have a backup" sometimes does not mean "I have all the keys". It calls for careful comparison of file, transaction history and blockchain before anyone can say what is recoverable.
+
+## What cannot be done
+
+A wallet.dat that has genuinely been overwritten with other data, of which only an empty or new version was found, or whose drive is physically unreadable without a specialised data-recovery lab, is beyond our reach. And if the balance was moved in 2014, there is nothing to recover — an explorer shows that in ten seconds.
+
+## How to start
+
+Don't touch the file, don't power on the old laptop "to have a look", and describe in the [intake](/en/contact) what you have: which device, roughly which version of Bitcoin Core you used, whether the file opens, and what you still remember of your passwords from that time. Based on that you'll hear honestly whether it is promising, and what the next step is. You pay only once you can reach your bitcoin again.

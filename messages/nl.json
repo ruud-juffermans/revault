@@ -36,10 +36,22 @@
     "legal": "Gevestigd in Nederland · KvK-nummer volgt"
   },
   "trust": {
-    "noCureNoPay": { "title": "No cure, no pay", "body": "Geen kosten vooraf. De vergoeding staat schriftelijk vast en is pas verschuldigd na herstel." },
-    "nonCustodial": { "title": "Non-custodial", "body": "Wij herstellen de toegang. U opent de wallet en verplaatst de tegoeden zelf." },
-    "onSiteOrRemote": { "title": "Op locatie of op afstand", "body": "Bij u thuis, op ons kantoor, of via een beveiligde sessie op afstand." },
-    "contractFirst": { "title": "Contract vooraf", "body": "Desgewenst een NDA, en altijd een getekende serviceovereenkomst vóór de start." }
+    "noCureNoPay": {
+      "title": "No cure, no pay",
+      "body": "Geen kosten vooraf. De vergoeding staat schriftelijk vast en is pas verschuldigd na herstel."
+    },
+    "nonCustodial": {
+      "title": "Non-custodial",
+      "body": "Wij herstellen de toegang. U opent de wallet en verplaatst de tegoeden zelf."
+    },
+    "onSiteOrRemote": {
+      "title": "Op locatie of op afstand",
+      "body": "Bij u thuis, op ons kantoor, of via een beveiligde sessie op afstand."
+    },
+    "contractFirst": {
+      "title": "Contract vooraf",
+      "body": "Desgewenst een NDA, en altijd een getekende serviceovereenkomst vóór de start."
+    }
   },
   "cta": {
     "title": "Buitengesloten uit uw wallet?",
@@ -74,10 +86,22 @@
     "why": {
       "eyebrow": "Waarom Revault",
       "title": "Gebouwd voor het moment waarop vertrouwen alles is.",
-      "confidential": { "title": "Vertrouwelijk, op papier", "body": "Voordat u iets deelt kan een geheimhoudingsovereenkomst worden getekend. Aanpak, vergoeding en beveiliging staan in een serviceovereenkomst naar Nederlands recht." },
-      "proven": { "title": "Eerlijke beoordeling", "body": "Wij zeggen vooraf wanneer een zaak niet kansrijk is. Een volledig verloren herstelzin zonder ander materiaal is niet te herstellen — door ons niet, en door niemand." },
-      "noCureNoPay": { "title": "No cure, no pay", "body": "Geen uurtarief en geen kosten vooraf. De vergoeding is een percentage van de herstelde waarde, vooraf afgesproken en pas verschuldigd als u weer toegang heeft." },
-      "direct": { "title": "Direct contact", "body": "U spreekt met de specialist die aan uw zaak werkt, niet met een ticketsysteem. Sessies vinden plaats op afstand, op ons kantoor, bij u of bij de notaris." }
+      "confidential": {
+        "title": "Vertrouwelijk, op papier",
+        "body": "Voordat u iets deelt kan een geheimhoudingsovereenkomst worden getekend. Aanpak, vergoeding en beveiliging staan in een serviceovereenkomst naar Nederlands recht."
+      },
+      "proven": {
+        "title": "Eerlijke beoordeling",
+        "body": "Wij zeggen vooraf wanneer een zaak niet kansrijk is. Een volledig verloren herstelzin zonder ander materiaal is niet te herstellen — door ons niet, en door niemand."
+      },
+      "noCureNoPay": {
+        "title": "No cure, no pay",
+        "body": "Geen uurtarief en geen kosten vooraf. De vergoeding is een percentage van de herstelde waarde, vooraf afgesproken en pas verschuldigd als u weer toegang heeft."
+      },
+      "direct": {
+        "title": "Direct contact",
+        "body": "U spreekt met de specialist die aan uw zaak werkt, niet met een ticketsysteem. Sessies vinden plaats op afstand, op ons kantoor, bij u of bij de notaris."
+      }
     }
   },
   "process": {
@@ -85,11 +109,26 @@
     "title": "Een vast proces, zodat u altijd weet wat de volgende stap is.",
     "lede": "Vijf stappen van eerste contact tot overdracht. Er begint niets technisch voordat identiteit, eigendom en de overeenkomst rond zijn.",
     "readMore": "Lees de volledige werkwijze",
-    "intake": { "title": "Intake en beoordeling", "body": "U beschrijft de wallet, wat er is gebeurd en wat u nog heeft. Wij beoordelen of herstel technisch realistisch is — gratis en vrijblijvend." },
-    "verification": { "title": "Verificatie", "body": "Voordat we een zaak aannemen verifiëren we uw identiteit en de aanwijzingen voor eigendom of bevoegdheid, met risicogebaseerde KYC/AML-controles." },
-    "agreement": { "title": "Overeenkomst", "body": "Aanpak, vergoeding, vertrouwelijkheid en het non-custodial principe worden vastgelegd in een getekende serviceovereenkomst. Een NDA is op verzoek mogelijk." },
-    "recovery": { "title": "Herstel", "body": "Wachtwoordherstel, reconstructie van de herstelzin of bestandsherstel draait op systemen zonder internetverbinding, op afstand of op locatie." },
-    "handover": { "title": "Overdracht", "body": "U opent de wallet en verplaatst de tegoeden naar een nieuwe wallet die alleen u beheert. De vergoeding wordt tijdens die overdracht voldaan." }
+    "intake": {
+      "title": "Intake en beoordeling",
+      "body": "U beschrijft de wallet, wat er is gebeurd en wat u nog heeft. Wij beoordelen of herstel technisch realistisch is — gratis en vrijblijvend."
+    },
+    "verification": {
+      "title": "Verificatie",
+      "body": "Voordat we een zaak aannemen verifiëren we uw identiteit en de aanwijzingen voor eigendom of bevoegdheid, met risicogebaseerde KYC/AML-controles."
+    },
+    "agreement": {
+      "title": "Overeenkomst",
+      "body": "Aanpak, vergoeding, vertrouwelijkheid en het non-custodial principe worden vastgelegd in een getekende serviceovereenkomst. Een NDA is op verzoek mogelijk."
+    },
+    "recovery": {
+      "title": "Herstel",
+      "body": "Wachtwoordherstel, reconstructie van de herstelzin of bestandsherstel draait op systemen zonder internetverbinding, op afstand of op locatie."
+    },
+    "handover": {
+      "title": "Overdracht",
+      "body": "U opent de wallet en verplaatst de tegoeden naar een nieuwe wallet die alleen u beheert. De vergoeding wordt tijdens die overdracht voldaan."
+    }
   },
   "faq": {
     "metaTitle": "Veelgestelde vragen",
@@ -99,18 +138,54 @@
     "subtitle": "De vragen die mensen stellen voordat ze contact opnemen.",
     "allQuestions": "Alle vragen",
     "items": {
-      "needToStart": { "q": "Wat hebben jullie van mij nodig om te starten?", "a": "Alleen uw verhaal: het type wallet, wat er is gebeurd en wat u nog heeft — een walletbestand, een back-up, een deel van de herstelzin of het oude apparaat. Deel in dit stadium nooit herstelzinnen, sleutels of wachtwoorden." },
-      "cost": { "q": "Wat kost een herstel?", "a": "Wij werken no cure, no pay. De standaardvergoeding is een percentage van de herstelde waarde, vooraf afgesproken en vastgelegd, en pas verschuldigd na herstel. Voor wallets met een hoge waarde geldt een maatwerktarief." },
-      "duration": { "q": "Hoe lang duurt het?", "a": "Dat verschilt per zaak. Eenvoudige wachtwoordzaken zijn soms binnen dagen klaar; complexe wachtwoorden of gedeeltelijke herstelzinnen kunnen weken tot soms maanden duren. Na de intake krijgt u een realistische inschatting." },
-      "trust": { "q": "Hoe kan ik jullie vertrouwen met mijn wallet?", "a": "Beide partijen tekenen een serviceovereenkomst naar Nederlands recht vóór enig werk. U houdt altijd zelf de controle: wij herstellen de toegang, u opent de wallet en verplaatst de tegoeden zelf." },
-      "chances": { "q": "Hoe groot is de kans op succes?", "a": "Dat hangt volledig af van wat u nog heeft. Een vergeten wachtwoord met gedeeltelijke herinnering, of een herstelzin met enkele ontbrekende woorden, is vaak te herstellen. We beoordelen eerlijk voordat u zich vastlegt." },
-      "littleInfo": { "q": "Kunnen jullie helpen als ik heel weinig informatie heb?", "a": "Soms. Weinig informatie beperkt de mogelijkheden, maar sluit herstel niet automatisch uit. We stellen een paar vragen en zeggen het direct als we denken niet te kunnen helpen." },
-      "currencies": { "q": "Welke cryptovaluta kunnen jullie herstellen?", "a": "Herstel gebeurt op walletniveau, dus de munt maakt zelden uit — Bitcoin, Ethereum en tokens, Litecoin, Dogecoin, XRP en de meeste andere. Het type wallet en het beschikbare materiaal bepalen de haalbaarheid." },
-      "wrongAddress": { "q": "Kunnen jullie een transactie naar een verkeerd adres terugdraaien?", "a": "Nee. Blockchaintransacties zijn onomkeerbaar. Heeft u naar een exchange gestuurd op het verkeerde netwerk of zonder tag, dan is de support van die exchange uw route." },
-      "stolen": { "q": "Kunnen jullie gestolen crypto of scamverlies terughalen?", "a": "Nee. Wij nemen geen zaken aan rond gestolen tegoeden of oplichting, en we traceren geen transacties. Een dienst die beweert een blockchaintransactie te kunnen terugdraaien beschrijft iets dat niet kan." },
-      "lostSeed": { "q": "Mijn herstelzin is volledig weg. Kunnen jullie helpen?", "a": "Niet als er geen ander walletmateriaal is — geen bestand, geen sleutel, geen back-up, geen apparaat. Dat kan niemand herstellen, wij ook niet." },
-      "inheritance": { "q": "Helpen jullie bij wallets uit een nalatenschap?", "a": "Ja. Wij werken met erfgenamen, executeurs, notarissen en advocaten. Elke nalatenschapszaak begint met verificatie van identiteit, bevoegdheid en eigendom vóór enig technisch werk." },
-      "location": { "q": "Moet ik naar jullie toe komen?", "a": "Nee. Sessies kunnen volledig op afstand via een beveiligde verbinding, op ons kantoor, bij u op locatie of bij de notaris. Uw adviseur is welkom." }
+      "needToStart": {
+        "q": "Wat hebben jullie van mij nodig om te starten?",
+        "a": "Alleen uw verhaal: het type wallet, wat er is gebeurd en wat u nog heeft — een walletbestand, een back-up, een deel van de herstelzin of het oude apparaat. Deel in dit stadium nooit herstelzinnen, sleutels of wachtwoorden."
+      },
+      "cost": {
+        "q": "Wat kost een herstel?",
+        "a": "Wij werken no cure, no pay. De standaardvergoeding is een percentage van de herstelde waarde, vooraf afgesproken en vastgelegd, en pas verschuldigd na herstel. Voor wallets met een hoge waarde geldt een maatwerktarief."
+      },
+      "duration": {
+        "q": "Hoe lang duurt het?",
+        "a": "Dat verschilt per zaak. Eenvoudige wachtwoordzaken zijn soms binnen dagen klaar; complexe wachtwoorden of gedeeltelijke herstelzinnen kunnen weken tot soms maanden duren. Na de intake krijgt u een realistische inschatting."
+      },
+      "trust": {
+        "q": "Hoe kan ik jullie vertrouwen met mijn wallet?",
+        "a": "Beide partijen tekenen een serviceovereenkomst naar Nederlands recht vóór enig werk. U houdt altijd zelf de controle: wij herstellen de toegang, u opent de wallet en verplaatst de tegoeden zelf."
+      },
+      "chances": {
+        "q": "Hoe groot is de kans op succes?",
+        "a": "Dat hangt volledig af van wat u nog heeft. Een vergeten wachtwoord met gedeeltelijke herinnering, of een herstelzin met enkele ontbrekende woorden, is vaak te herstellen. We beoordelen eerlijk voordat u zich vastlegt."
+      },
+      "littleInfo": {
+        "q": "Kunnen jullie helpen als ik heel weinig informatie heb?",
+        "a": "Soms. Weinig informatie beperkt de mogelijkheden, maar sluit herstel niet automatisch uit. We stellen een paar vragen en zeggen het direct als we denken niet te kunnen helpen."
+      },
+      "currencies": {
+        "q": "Welke cryptovaluta kunnen jullie herstellen?",
+        "a": "Herstel gebeurt op walletniveau, dus de munt maakt zelden uit — Bitcoin, Ethereum en tokens, Litecoin, Dogecoin, XRP en de meeste andere. Het type wallet en het beschikbare materiaal bepalen de haalbaarheid."
+      },
+      "wrongAddress": {
+        "q": "Kunnen jullie een transactie naar een verkeerd adres terugdraaien?",
+        "a": "Nee. Blockchaintransacties zijn onomkeerbaar. Heeft u naar een exchange gestuurd op het verkeerde netwerk of zonder tag, dan is de support van die exchange uw route."
+      },
+      "stolen": {
+        "q": "Kunnen jullie gestolen crypto of scamverlies terughalen?",
+        "a": "Nee. Wij nemen geen zaken aan rond gestolen tegoeden of oplichting, en we traceren geen transacties. Een dienst die beweert een blockchaintransactie te kunnen terugdraaien beschrijft iets dat niet kan."
+      },
+      "lostSeed": {
+        "q": "Mijn herstelzin is volledig weg. Kunnen jullie helpen?",
+        "a": "Niet als er geen ander walletmateriaal is — geen bestand, geen sleutel, geen back-up, geen apparaat. Dat kan niemand herstellen, wij ook niet."
+      },
+      "inheritance": {
+        "q": "Helpen jullie bij wallets uit een nalatenschap?",
+        "a": "Ja. Wij werken met erfgenamen, executeurs, notarissen en advocaten. Elke nalatenschapszaak begint met verificatie van identiteit, bevoegdheid en eigendom vóór enig technisch werk."
+      },
+      "location": {
+        "q": "Moet ik naar jullie toe komen?",
+        "a": "Nee. Sessies kunnen volledig op afstand via een beveiligde verbinding, op ons kantoor, bij u op locatie of bij de notaris. Uw adviseur is welkom."
+      }
     }
   },
   "servicesPage": {
@@ -138,11 +213,25 @@
       "intro": "U weet nog een deel — een patroon, een paar woorden, een jaartal — maar niet genoeg. Wij zetten wat u nog weet om in een gerichte zoektocht op afgeschermde systemen.",
       "metaTitle": "Wallet wachtwoord herstel",
       "metaDescription": "Wachtwoord of passphrase van uw crypto wallet vergeten? Revault voert gericht, offline herstel uit op basis van wat u nog weet. No cure, no pay.",
-      "can": { "one": "Versleutelde walletbestanden (wallet.dat, keystore, Electrum, Ledger/Trezor-passphrase)", "two": "De optionele passphrase, het ‘25e woord’ naast de herstelzin", "three": "Met wachtwoord beveiligde archieven en back-ups met walletgegevens" },
-      "need": { "one": "Het walletbestand of apparaat (pas gedeeld na de overeenkomst)", "two": "Alles wat u zich herinnert: fragmenten, gewoontes, andere wachtwoorden uit die tijd", "three": "Aanwijzingen dat de wallet van u is" },
+      "can": {
+        "one": "Versleutelde walletbestanden (wallet.dat, keystore, Electrum, Ledger/Trezor-passphrase)",
+        "two": "De optionele passphrase, het ‘25e woord’ naast de herstelzin",
+        "three": "Met wachtwoord beveiligde archieven en back-ups met walletgegevens"
+      },
+      "need": {
+        "one": "Het walletbestand of apparaat (pas gedeeld na de overeenkomst)",
+        "two": "Alles wat u zich herinnert: fragmenten, gewoontes, andere wachtwoorden uit die tijd",
+        "three": "Aanwijzingen dat de wallet van u is"
+      },
       "faq": {
-        "one": { "q": "En als ik echt niets meer weet?", "a": "Een zoektocht zonder aanknopingspunten is zelden realistisch. Dat zeggen we bij de intake, in plaats van de zaak aan te nemen." },
-        "two": { "q": "Bewaren jullie mijn walletbestand?", "a": "Nee. Materiaal wordt behandeld onder de overeenkomst, in een afgeschermde omgeving, en na overdracht verwijderd." }
+        "one": {
+          "q": "En als ik echt niets meer weet?",
+          "a": "Een zoektocht zonder aanknopingspunten is zelden realistisch. Dat zeggen we bij de intake, in plaats van de zaak aan te nemen."
+        },
+        "two": {
+          "q": "Bewaren jullie mijn walletbestand?",
+          "a": "Nee. Materiaal wordt behandeld onder de overeenkomst, in een afgeschermde omgeving, en na overdracht verwijderd."
+        }
       }
     },
     "seed-phrase-reconstruction": {
@@ -151,11 +240,25 @@
       "intro": "Een herstelzin met enkele ontbrekende of verkeerd gespelde woorden, in de verkeerde volgorde, of die niet valideert, is vaak te reconstrueren — mits er genoeg van over is.",
       "metaTitle": "Herstelzin reconstructie",
       "metaDescription": "Herstelzin met ontbrekende, verkeerde of verwisselde woorden? Revault reconstrueert onvolledige herstelzinnen op systemen zonder internet. No cure, no pay.",
-      "can": { "one": "Enkele ontbrekende of verkeerd gespelde woorden", "two": "Woorden in de verkeerde volgorde of een onbekend afleidingspad", "three": "Beschadigde papieren of metalen back-ups, desnoods met documentherstelpartners" },
-      "need": { "one": "De overgebleven woorden en hun posities, pas gedeeld na de overeenkomst", "two": "De walletsoftware of het apparaat waarmee de zin is gemaakt", "three": "Een bekend adres of een transactie om het resultaat te bevestigen" },
+      "can": {
+        "one": "Enkele ontbrekende of verkeerd gespelde woorden",
+        "two": "Woorden in de verkeerde volgorde of een onbekend afleidingspad",
+        "three": "Beschadigde papieren of metalen back-ups, desnoods met documentherstelpartners"
+      },
+      "need": {
+        "one": "De overgebleven woorden en hun posities, pas gedeeld na de overeenkomst",
+        "two": "De walletsoftware of het apparaat waarmee de zin is gemaakt",
+        "three": "Een bekend adres of een transactie om het resultaat te bevestigen"
+      },
       "faq": {
-        "one": { "q": "Hoeveel ontbrekende woorden is te veel?", "a": "Dat hangt af van de lengte van de zin en wat verder bekend is. We berekenen de zoekruimte voordat we de zaak aannemen." },
-        "two": { "q": "Mijn herstelzin is helemaal weg.", "a": "Dan is reconstructie voor niemand mogelijk. Wij nemen alleen zaken aan waar betekenisvol materiaal over is." }
+        "one": {
+          "q": "Hoeveel ontbrekende woorden is te veel?",
+          "a": "Dat hangt af van de lengte van de zin en wat verder bekend is. We berekenen de zoekruimte voordat we de zaak aannemen."
+        },
+        "two": {
+          "q": "Mijn herstelzin is helemaal weg.",
+          "a": "Dan is reconstructie voor niemand mogelijk. Wij nemen alleen zaken aan waar betekenisvol materiaal over is."
+        }
       }
     },
     "damaged-wallet": {
@@ -164,11 +267,25 @@
       "intro": "Een walletbestand dat weigert te openen is niet per definitie verloren. Wij analyseren de structuur en herstellen wat te herstellen is in een compatibele omgeving.",
       "metaTitle": "Herstel van beschadigde walletbestanden",
       "metaDescription": "Corrupt of beschadigd walletbestand? Revault analyseert en repareert kapotte wallet.dat-, keystore- en back-upbestanden. No cure, no pay.",
-      "can": { "one": "Corrupte wallet.dat- en keystorebestanden", "two": "Gedeeltelijk overschreven of afgekapte back-ups", "three": "Walletgegevens op falende schijven, met dataherstelpartners waar nodig" },
-      "need": { "one": "Het beschadigde bestand of de schijf", "two": "De software en versie waarmee het is gemaakt", "three": "Bewijs van eigendom" },
+      "can": {
+        "one": "Corrupte wallet.dat- en keystorebestanden",
+        "two": "Gedeeltelijk overschreven of afgekapte back-ups",
+        "three": "Walletgegevens op falende schijven, met dataherstelpartners waar nodig"
+      },
+      "need": {
+        "one": "Het beschadigde bestand of de schijf",
+        "two": "De software en versie waarmee het is gemaakt",
+        "three": "Bewijs van eigendom"
+      },
       "faq": {
-        "one": { "q": "Kunnen jullie een verwijderd walletbestand terughalen?", "a": "Soms, als de schijf sindsdien weinig is gebruikt. Stop met het gebruik van het apparaat en neem contact op." },
-        "two": { "q": "Hebben jullie de schijf fysiek nodig?", "a": "Bij fysieke schade wel. Bij corruptie op bestandsniveau volstaat meestal een sessie op afstand." }
+        "one": {
+          "q": "Kunnen jullie een verwijderd walletbestand terughalen?",
+          "a": "Soms, als de schijf sindsdien weinig is gebruikt. Stop met het gebruik van het apparaat en neem contact op."
+        },
+        "two": {
+          "q": "Hebben jullie de schijf fysiek nodig?",
+          "a": "Bij fysieke schade wel. Bij corruptie op bestandsniveau volstaat meestal een sessie op afstand."
+        }
       }
     },
     "legacy-wallet": {
@@ -177,11 +294,25 @@
       "intro": "MultiBit, Jaxx, oude Blockchain.info-back-ups, vroege Bitcoin Core: software die niet meer draait op een moderne computer. Wij bouwen een compatibele omgeving en halen de sleutels eruit.",
       "metaTitle": "Herstel van verouderde wallets",
       "metaDescription": "Oude wallet van gestopte software die niet meer opent? Revault bouwt compatibele omgevingen voor MultiBit, Jaxx, vroege Bitcoin Core en meer.",
-      "can": { "one": "Gestopte wallets (MultiBit, Jaxx, Armory, vroege mobiele wallets)", "two": "Oude back-upformaten en versleutelde exportbestanden", "three": "Migratie naar een moderne wallet die u zelf beheert" },
-      "need": { "one": "Het walletbestand, de back-up of het apparaat", "two": "Wat u nog weet over de software en de versie", "three": "Bewijs van eigendom" },
+      "can": {
+        "one": "Gestopte wallets (MultiBit, Jaxx, Armory, vroege mobiele wallets)",
+        "two": "Oude back-upformaten en versleutelde exportbestanden",
+        "three": "Migratie naar een moderne wallet die u zelf beheert"
+      },
+      "need": {
+        "one": "Het walletbestand, de back-up of het apparaat",
+        "two": "Wat u nog weet over de software en de versie",
+        "three": "Bewijs van eigendom"
+      },
       "faq": {
-        "one": { "q": "Het bedrijf achter mijn wallet bestaat niet meer.", "a": "Dat komt vaak voor en is meestal geen probleem. De meeste oude formaten zijn gedocumenteerd of gereverse-engineerd." },
-        "two": { "q": "Verplaatsen jullie mijn munten voor mij?", "a": "Nee. Wij herstellen de toegang; u verplaatst de tegoeden zelf naar een nieuwe wallet, desgewenst terwijl wij erbij zijn." }
+        "one": {
+          "q": "Het bedrijf achter mijn wallet bestaat niet meer.",
+          "a": "Dat komt vaak voor en is meestal geen probleem. De meeste oude formaten zijn gedocumenteerd of gereverse-engineerd."
+        },
+        "two": {
+          "q": "Verplaatsen jullie mijn munten voor mij?",
+          "a": "Nee. Wij herstellen de toegang; u verplaatst de tegoeden zelf naar een nieuwe wallet, desgewenst terwijl wij erbij zijn."
+        }
       }
     },
     "hardware-wallet": {
@@ -190,11 +321,25 @@
       "intro": "De munten stonden nooit op het apparaat — ze staan op de blockchain. Of het apparaat kapot is of de pincode weg, de toegang is meestal te herstellen vanuit de herstelzin of het apparaat zelf.",
       "metaTitle": "Hardware wallet herstel (Ledger, Trezor)",
       "metaDescription": "Kapotte of geblokkeerde Ledger of Trezor? Revault herstelt de toegang vanaf een beschadigd apparaat of een onvolledige herstelzin. Non-custodial. No cure, no pay.",
-      "can": { "one": "Fysieke defecten: gebarsten schermen, kapotte poorten, waterschade", "two": "Vergeten pincodes en passphrases", "three": "Onvolledige herstelzinnen van de oorspronkelijke installatie" },
-      "need": { "one": "Het apparaat en/of de herstelkaart", "two": "De apps en munten die u ermee gebruikte", "three": "Bewijs van eigendom" },
+      "can": {
+        "one": "Fysieke defecten: gebarsten schermen, kapotte poorten, waterschade",
+        "two": "Vergeten pincodes en passphrases",
+        "three": "Onvolledige herstelzinnen van de oorspronkelijke installatie"
+      },
+      "need": {
+        "one": "Het apparaat en/of de herstelkaart",
+        "two": "De apps en munten die u ermee gebruikte",
+        "three": "Bewijs van eigendom"
+      },
       "faq": {
-        "one": { "q": "Kunnen jullie de pincode omzeilen?", "a": "Wij vallen het beveiligde element van het apparaat niet aan. Herstel komt uit de herstelzin, kennis van de passphrase of hardwarereparatie." },
-        "two": { "q": "Mijn apparaat is van een merk dat niet meer bestaat.", "a": "De meeste hardware wallets volgen dezelfde BIP-standaarden; de herstelzin werkt meestal in een andere wallet." }
+        "one": {
+          "q": "Kunnen jullie de pincode omzeilen?",
+          "a": "Wij vallen het beveiligde element van het apparaat niet aan. Herstel komt uit de herstelzin, kennis van de passphrase of hardwarereparatie."
+        },
+        "two": {
+          "q": "Mijn apparaat is van een merk dat niet meer bestaat.",
+          "a": "De meeste hardware wallets volgen dezelfde BIP-standaarden; de herstelzin werkt meestal in een andere wallet."
+        }
       }
     },
     "inheritance": {
@@ -203,25 +348,87 @@
       "intro": "Als iemand overlijdt en crypto nalaat, is het technische probleem maar de helft van het verhaal. Wij werken samen met notarissen, executeurs en advocaten, met verificatie van bevoegdheid vóór al het andere.",
       "metaTitle": "Herstel van geërfde crypto wallets",
       "metaDescription": "Een crypto wallet geërfd waar u niet in kunt? Revault ondersteunt erfgenamen, executeurs, notarissen en advocaten met geverifieerd, vertrouwelijk herstel.",
-      "can": { "one": "Wallets vinden en openen op apparaten van de overledene", "two": "Gestructureerde overdracht aan de nalatenschap onder toezicht van de notaris", "three": "Technisch expert voor advocaten, curatoren en family offices" },
-      "need": { "one": "Bewijs van bevoegdheid: verklaring van erfrecht, benoeming als executeur of vergelijkbaar", "two": "De apparaten, bestanden en documenten die zijn gevonden", "three": "Een contactpersoon bij de notaris of het advocatenkantoor" },
+      "can": {
+        "one": "Wallets vinden en openen op apparaten van de overledene",
+        "two": "Gestructureerde overdracht aan de nalatenschap onder toezicht van de notaris",
+        "three": "Technisch expert voor advocaten, curatoren en family offices"
+      },
+      "need": {
+        "one": "Bewijs van bevoegdheid: verklaring van erfrecht, benoeming als executeur of vergelijkbaar",
+        "two": "De apparaten, bestanden en documenten die zijn gevonden",
+        "three": "Een contactpersoon bij de notaris of het advocatenkantoor"
+      },
       "faq": {
-        "one": { "q": "Kan de notaris bij het herstel aanwezig zijn?", "a": "Ja, en dat moedigen we aan. Sessies kunnen op het notariskantoor plaatsvinden." },
-        "two": { "q": "Hoe gaan jullie om met meerdere erfgenamen?", "a": "Tegoeden gaan naar een wallet die de bevoegde vertegenwoordiger van de nalatenschap aanwijst, nooit naar ons." }
+        "one": {
+          "q": "Kan de notaris bij het herstel aanwezig zijn?",
+          "a": "Ja, en dat moedigen we aan. Sessies kunnen op het notariskantoor plaatsvinden."
+        },
+        "two": {
+          "q": "Hoe gaan jullie om met meerdere erfgenamen?",
+          "a": "Tegoeden gaan naar een wallet die de bevoegde vertegenwoordiger van de nalatenschap aanwijst, nooit naar ons."
+        }
       }
     }
   },
   "wallets": {
     "eyebrow": "Walletgids",
     "relatedTitle": "Relevante hersteldiensten",
-    "ledger": { "name": "Ledger", "title": "Ledger wallet herstel", "intro": "Kapotte Ledger, vergeten pincode of passphrase, of een herstelkaart met fouten. Uw munten staan op de blockchain, niet op het apparaat.", "metaTitle": "Ledger wallet herstel", "metaDescription": "Geen toegang meer tot uw Ledger? Revault herstelt de toegang na defecten, vergeten pincodes en onvolledige herstelzinnen. No cure, no pay." },
-    "trezor": { "name": "Trezor", "title": "Trezor wallet herstel", "intro": "Verloren of kapotte Trezor, vergeten passphrase, of een herstelzin met enkele verkeerde woorden. Meestal te herstellen als de zin grotendeels over is.", "metaTitle": "Trezor wallet herstel", "metaDescription": "Trezor kwijt of kapot? Revault herstelt de toegang vanuit een onvolledige herstelzin of een defect apparaat. Non-custodial. No cure, no pay." },
-    "metamask": { "name": "MetaMask", "title": "MetaMask wallet herstel", "intro": "Vergeten MetaMask-wachtwoord terwijl de browserkluis er nog is, of een geheime herstelzin met fouten.", "metaTitle": "MetaMask wallet herstel", "metaDescription": "MetaMask-wachtwoord vergeten of een deel van de geheime herstelzin kwijt? Revault herstelt de toegang vanuit de browserkluis of de gedeeltelijke zin." },
-    "electrum": { "name": "Electrum", "title": "Electrum wallet herstel", "intro": "Versleutelde Electrum-walletbestanden, seeds in oud formaat en corrupte wallets uit elke versie sinds 2011.", "metaTitle": "Electrum wallet herstel", "metaDescription": "Electrum-wachtwoord vergeten of bestand beschadigd? Revault herstelt versleutelde Electrum-wallets en seeds in oud formaat. No cure, no pay." },
-    "bitcoin-core": { "name": "Bitcoin Core", "title": "Bitcoin Core wallet.dat herstel", "intro": "Versleutelde of corrupte wallet.dat-bestanden, ook de vroege uit 2009–2013.", "metaTitle": "Bitcoin Core wallet.dat herstel", "metaDescription": "Wallet.dat-wachtwoord vergeten of corrupte Bitcoin Core-wallet? Revault voert gericht offline herstel uit op wallet.dat-bestanden uit elke periode." },
-    "blockchain-com": { "name": "Blockchain.com", "title": "Blockchain.com wallet herstel", "intro": "Oude Blockchain.info-back-ups, wallet-ID's met vergeten wachtwoorden en versleutelde JSON-exports.", "metaTitle": "Blockchain.com wallet herstel", "metaDescription": "Geen toegang meer tot een oude Blockchain.info / Blockchain.com wallet? Revault herstelt oude back-ups en vergeten wachtwoorden." },
-    "multibit": { "name": "MultiBit", "title": "MultiBit wallet herstel", "intro": "MultiBit Classic en HD zijn jaren geleden gestopt. Hun .wallet- en .key-bestanden zijn nog te openen in een nagebouwde omgeving.", "metaTitle": "MultiBit wallet herstel", "metaDescription": "MultiBit-wallet die niet meer opent? Revault bouwt de omgeving na voor MultiBit Classic- en HD-bestanden. No cure, no pay." },
-    "jaxx": { "name": "Jaxx Liberty", "title": "Jaxx Liberty wallet herstel", "intro": "Jaxx Liberty is in 2023 gestopt. Met de back-upzin van 12 woorden — ook een onvolmaakte — is de toegang te herstellen in een moderne wallet.", "metaTitle": "Jaxx Liberty wallet herstel", "metaDescription": "Jaxx Liberty bestaat niet meer, uw munten wel. Revault herstelt de toegang vanuit Jaxx-back-upzinnen en oude app-data." }
+    "ledger": {
+      "name": "Ledger",
+      "title": "Ledger wallet herstel",
+      "intro": "Kapotte Ledger, vergeten pincode of passphrase, of een herstelkaart met fouten. Uw munten staan op de blockchain, niet op het apparaat.",
+      "metaTitle": "Ledger wallet herstel",
+      "metaDescription": "Geen toegang meer tot uw Ledger? Revault herstelt de toegang na defecten, vergeten pincodes en onvolledige herstelzinnen. No cure, no pay."
+    },
+    "trezor": {
+      "name": "Trezor",
+      "title": "Trezor wallet herstel",
+      "intro": "Verloren of kapotte Trezor, vergeten passphrase, of een herstelzin met enkele verkeerde woorden. Meestal te herstellen als de zin grotendeels over is.",
+      "metaTitle": "Trezor wallet herstel",
+      "metaDescription": "Trezor kwijt of kapot? Revault herstelt de toegang vanuit een onvolledige herstelzin of een defect apparaat. Non-custodial. No cure, no pay."
+    },
+    "metamask": {
+      "name": "MetaMask",
+      "title": "MetaMask wallet herstel",
+      "intro": "Vergeten MetaMask-wachtwoord terwijl de browserkluis er nog is, of een geheime herstelzin met fouten.",
+      "metaTitle": "MetaMask wallet herstel",
+      "metaDescription": "MetaMask-wachtwoord vergeten of een deel van de geheime herstelzin kwijt? Revault herstelt de toegang vanuit de browserkluis of de gedeeltelijke zin."
+    },
+    "electrum": {
+      "name": "Electrum",
+      "title": "Electrum wallet herstel",
+      "intro": "Versleutelde Electrum-walletbestanden, seeds in oud formaat en corrupte wallets uit elke versie sinds 2011.",
+      "metaTitle": "Electrum wallet herstel",
+      "metaDescription": "Electrum-wachtwoord vergeten of bestand beschadigd? Revault herstelt versleutelde Electrum-wallets en seeds in oud formaat. No cure, no pay."
+    },
+    "bitcoin-core": {
+      "name": "Bitcoin Core",
+      "title": "Bitcoin Core wallet.dat herstel",
+      "intro": "Versleutelde of corrupte wallet.dat-bestanden, ook de vroege uit 2009–2013.",
+      "metaTitle": "Bitcoin Core wallet.dat herstel",
+      "metaDescription": "Wallet.dat-wachtwoord vergeten of corrupte Bitcoin Core-wallet? Revault voert gericht offline herstel uit op wallet.dat-bestanden uit elke periode."
+    },
+    "blockchain-com": {
+      "name": "Blockchain.com",
+      "title": "Blockchain.com wallet herstel",
+      "intro": "Oude Blockchain.info-back-ups, wallet-ID's met vergeten wachtwoorden en versleutelde JSON-exports.",
+      "metaTitle": "Blockchain.com wallet herstel",
+      "metaDescription": "Geen toegang meer tot een oude Blockchain.info / Blockchain.com wallet? Revault herstelt oude back-ups en vergeten wachtwoorden."
+    },
+    "multibit": {
+      "name": "MultiBit",
+      "title": "MultiBit wallet herstel",
+      "intro": "MultiBit Classic en HD zijn jaren geleden gestopt. Hun .wallet- en .key-bestanden zijn nog te openen in een nagebouwde omgeving.",
+      "metaTitle": "MultiBit wallet herstel",
+      "metaDescription": "MultiBit-wallet die niet meer opent? Revault bouwt de omgeving na voor MultiBit Classic- en HD-bestanden. No cure, no pay."
+    },
+    "jaxx": {
+      "name": "Jaxx Liberty",
+      "title": "Jaxx Liberty wallet herstel",
+      "intro": "Jaxx Liberty is in 2023 gestopt. Met de back-upzin van 12 woorden — ook een onvolmaakte — is de toegang te herstellen in een moderne wallet.",
+      "metaTitle": "Jaxx Liberty wallet herstel",
+      "metaDescription": "Jaxx Liberty bestaat niet meer, uw munten wel. Revault herstelt de toegang vanuit Jaxx-back-upzinnen en oude app-data."
+    }
   },
   "howItWorks": {
     "metaTitle": "Zo werkt wallet herstel",
@@ -232,10 +439,22 @@
     "securityTitle": "Zo houden we uw zaak veilig",
     "securityLede": "Beveiliging is geen extra, het is de randvoorwaarde waar al het andere omheen is ontworpen.",
     "security": {
-      "offline": { "title": "Systemen zonder internet", "body": "Herstelwerk draait op machines zonder netwerkverbinding. Materiaal komt nooit in de cloud." },
-      "nda": { "title": "NDA vóór de details", "body": "Op verzoek tekenen we een geheimhoudingsovereenkomst voordat u iets over uw zaak deelt." },
-      "verification": { "title": "Verificatie eerst", "body": "Identiteit, eigendom of bevoegdheid worden geverifieerd met risicogebaseerde KYC/AML-controles voordat een zaak wordt aangenomen." },
-      "location": { "title": "Locatie naar keuze", "body": "Op afstand via een beveiligde verbinding, op ons kantoor, bij u of bij de notaris — desgewenst met uw adviseur erbij." }
+      "offline": {
+        "title": "Systemen zonder internet",
+        "body": "Herstelwerk draait op machines zonder netwerkverbinding. Materiaal komt nooit in de cloud."
+      },
+      "nda": {
+        "title": "NDA vóór de details",
+        "body": "Op verzoek tekenen we een geheimhoudingsovereenkomst voordat u iets over uw zaak deelt."
+      },
+      "verification": {
+        "title": "Verificatie eerst",
+        "body": "Identiteit, eigendom of bevoegdheid worden geverifieerd met risicogebaseerde KYC/AML-controles voordat een zaak wordt aangenomen."
+      },
+      "location": {
+        "title": "Locatie naar keuze",
+        "body": "Op afstand via een beveiligde verbinding, op ons kantoor, bij u of bij de notaris — desgewenst met uw adviseur erbij."
+      }
     }
   },
   "pricing": {
@@ -244,15 +463,35 @@
     "eyebrow": "Tarieven",
     "title": "No cure, no pay.",
     "subtitle": "Geen kosten vooraf en geen uurtarief. U betaalt pas als u weer toegang heeft — en u kent dat bedrag voordat we beginnen.",
-    "standard": { "eyebrow": "Standaard", "headline": "20% van de herstelde waarde", "body": "Vooraf afgesproken en vastgelegd. Pas verschuldigd nadat u de wallet heeft geopend en de tegoeden zelf heeft verplaatst." },
-    "custom": { "eyebrow": "Wallets met hoge waarde", "headline": "Maatwerktarief", "body": "Bij aanzienlijke tegoeden spreken we een lager percentage af op basis van complexiteit en inspanning. Plan een gesprek." },
+    "standard": {
+      "eyebrow": "Standaard",
+      "headline": "20% van de herstelde waarde",
+      "body": "Vooraf afgesproken en vastgelegd. Pas verschuldigd nadat u de wallet heeft geopend en de tegoeden zelf heeft verplaatst."
+    },
+    "custom": {
+      "eyebrow": "Wallets met hoge waarde",
+      "headline": "Maatwerktarief",
+      "body": "Bij aanzienlijke tegoeden spreken we een lager percentage af op basis van complexiteit en inspanning. Plan een gesprek."
+    },
     "note": "In vrijwel alle zaken is de vergoeding het enige dat u betaalt. Alleen in uitzonderlijke situaties — internationale reizen of fysiek dataherstel door een partner — kunnen extra kosten gelden, en die worden altijd vooraf schriftelijk afgesproken.",
     "faqTitle": "Vragen over tarieven",
     "faq": {
-      "upfront": { "q": "Betaal ik iets vooraf?", "a": "Nee. De beoordeling is gratis en er is geen vergoeding verschuldigd totdat de toegang is hersteld." },
-      "highValue": { "q": "Wat als mijn wallet een groot bedrag bevat?", "a": "Voor wallets met hoge waarde spreken we een lager percentage af. Neem contact op voor een voorstel op maat." },
-      "hidden": { "q": "Zijn er verborgen kosten?", "a": "Nee. De vergoeding in de overeenkomst is het enige bedrag dat na een geslaagd herstel in rekening wordt gebracht." },
-      "extra": { "q": "Wanneer kunnen extra kosten gelden?", "a": "Alleen bij uitzonderlijke posten zoals reizen of fysiek dataherstel door derden, en altijd vooraf schriftelijk afgesproken." }
+      "upfront": {
+        "q": "Betaal ik iets vooraf?",
+        "a": "Nee. De beoordeling is gratis en er is geen vergoeding verschuldigd totdat de toegang is hersteld."
+      },
+      "highValue": {
+        "q": "Wat als mijn wallet een groot bedrag bevat?",
+        "a": "Voor wallets met hoge waarde spreken we een lager percentage af. Neem contact op voor een voorstel op maat."
+      },
+      "hidden": {
+        "q": "Zijn er verborgen kosten?",
+        "a": "Nee. De vergoeding in de overeenkomst is het enige bedrag dat na een geslaagd herstel in rekening wordt gebracht."
+      },
+      "extra": {
+        "q": "Wanneer kunnen extra kosten gelden?",
+        "a": "Alleen bij uitzonderlijke posten zoals reizen of fysiek dataherstel door derden, en altijd vooraf schriftelijk afgesproken."
+      }
     }
   },
   "about": {
@@ -268,9 +507,18 @@
     },
     "valuesTitle": "Waar wij ons aan houden",
     "values": {
-      "honesty": { "title": "Eerlijk eerst", "body": "Een realistische beoordeling voordat u zich vastlegt, ook als het antwoord nee is." },
-      "security": { "title": "Veilig by design", "body": "Afgeschermde systemen, geen cloud, geen geheimen per e-mail, en een NDA als u die wilt." },
-      "control": { "title": "U houdt de controle", "body": "Wij beheren nooit tegoeden. U opent de wallet en verplaatst de tegoeden zelf." }
+      "honesty": {
+        "title": "Eerlijk eerst",
+        "body": "Een realistische beoordeling voordat u zich vastlegt, ook als het antwoord nee is."
+      },
+      "security": {
+        "title": "Veilig by design",
+        "body": "Afgeschermde systemen, geen cloud, geen geheimen per e-mail, en een NDA als u die wilt."
+      },
+      "control": {
+        "title": "U houdt de controle",
+        "body": "Wij beheren nooit tegoeden. U opent de wallet en verplaatst de tegoeden zelf."
+      }
     }
   },
   "blog": {
@@ -305,12 +553,33 @@
       "genericError": "Er is iets misgegaan. Probeer het opnieuw of mail ons rechtstreeks.",
       "secretWarning": "Vul nooit herstelzinnen, privésleutels of wachtwoorden in dit formulier in. Wij vragen er nooit per e-mail om."
     },
-    "walletTypes": { "software": "Softwarewallet (desktop / mobiel / browser)", "hardware": "Hardware wallet (Ledger, Trezor…)", "exchange": "Exchange-account", "paper": "Papieren of metalen back-up", "unknown": "Weet ik niet zeker" },
-    "issueTypes": { "forgotten-password": "Vergeten wachtwoord of passphrase", "seed-phrase": "Onvolledige of onjuiste herstelzin", "damaged-file": "Beschadigd of corrupt walletbestand", "legacy-wallet": "Oude walletsoftware die niet meer werkt", "hardware-defect": "Kapotte hardware wallet", "inheritance": "Geërfde wallet", "other": "Iets anders" },
-    "success": { "title": "Bedankt — we hebben uw zaak ontvangen.", "body": "Uw referentie is {reference}. Een specialist reageert binnen twee werkdagen. In de tussentijd: installeer geen software opnieuw, reset geen apparaten en schrijf niet meer naar een schijf die walletgegevens kan bevatten." },
+    "walletTypes": {
+      "software": "Softwarewallet (desktop / mobiel / browser)",
+      "hardware": "Hardware wallet (Ledger, Trezor…)",
+      "exchange": "Exchange-account",
+      "paper": "Papieren of metalen back-up",
+      "unknown": "Weet ik niet zeker"
+    },
+    "issueTypes": {
+      "forgotten-password": "Vergeten wachtwoord of passphrase",
+      "seed-phrase": "Onvolledige of onjuiste herstelzin",
+      "damaged-file": "Beschadigd of corrupt walletbestand",
+      "legacy-wallet": "Oude walletsoftware die niet meer werkt",
+      "hardware-defect": "Kapotte hardware wallet",
+      "inheritance": "Geërfde wallet",
+      "other": "Iets anders"
+    },
+    "success": {
+      "title": "Bedankt — we hebben uw zaak ontvangen.",
+      "body": "Uw referentie is {reference}. Een specialist reageert binnen twee werkdagen. In de tussentijd: installeer geen software opnieuw, reset geen apparaten en schrijf niet meer naar een schijf die walletgegevens kan bevatten."
+    },
     "aside": {
       "title": "Wat er nu gebeurt",
-      "steps": { "one": "Een specialist leest uw beschrijving en reageert met een eerlijke beoordeling.", "two": "Lijkt het kansrijk, dan plannen we een gesprek en verifiëren we identiteit en eigendom.", "three": "Pas daarna tekenen we de overeenkomst en begint het technische werk." },
+      "steps": {
+        "one": "Een specialist leest uw beschrijving en reageert met een eerlijke beoordeling.",
+        "two": "Lijkt het kansrijk, dan plannen we een gesprek en verifiëren we identiteit en eigendom.",
+        "three": "Pas daarna tekenen we de overeenkomst en begint het technische werk."
+      },
       "direct": "Liever eerst bellen? Zet het in uw bericht en we sturen een planningslink."
     }
   },
@@ -320,11 +589,26 @@
     "title": "Privacybeleid",
     "updated": "Laatst bijgewerkt: augustus 2026",
     "sections": [
-      { "title": "Wat wij verzamelen", "body": "Via het intakeformulier: uw naam, e-mailadres, optioneel telefoonnummer en de beschrijving van uw zaak. Tijdens een zaak: identiteitsdocumenten voor KYC/AML-verificatie en het technische materiaal dat nodig is voor herstel, behandeld onder de serviceovereenkomst." },
-      { "title": "Wat wij nooit online vragen", "body": "Herstelzinnen, privésleutels en wachtwoorden. Dergelijk materiaal wordt alleen behandeld na een getekende overeenkomst, in een afgeschermde omgeving, en na overdracht verwijderd." },
-      { "title": "Waarvoor wij het gebruiken", "body": "Om uw zaak te beoordelen en, indien overeengekomen, uit te voeren; om aan wettelijke verplichtingen te voldoen; en voor anonieme bezoekstatistieken zonder cookies of trackers van derden." },
-      { "title": "Bewaartermijn", "body": "Intakeverzoeken die geen zaak worden, verwijderen we na 12 maanden. Zaakdossiers bewaren we zolang de Nederlandse wet dat vereist voor identificatie en belasting, en daarna verwijderen we ze." },
-      { "title": "Uw rechten", "body": "U kunt per e-mail inzage, correctie of verwijdering van uw persoonsgegevens aanvragen. Wij reageren binnen 30 dagen." }
+      {
+        "title": "Wat wij verzamelen",
+        "body": "Via het intakeformulier: uw naam, e-mailadres, optioneel telefoonnummer en de beschrijving van uw zaak. Tijdens een zaak: identiteitsdocumenten voor KYC/AML-verificatie en het technische materiaal dat nodig is voor herstel, behandeld onder de serviceovereenkomst."
+      },
+      {
+        "title": "Wat wij nooit online vragen",
+        "body": "Herstelzinnen, privésleutels en wachtwoorden. Dergelijk materiaal wordt alleen behandeld na een getekende overeenkomst, in een afgeschermde omgeving, en na overdracht verwijderd."
+      },
+      {
+        "title": "Waarvoor wij het gebruiken",
+        "body": "Om uw zaak te beoordelen en, indien overeengekomen, uit te voeren; om aan wettelijke verplichtingen te voldoen; en voor anonieme bezoekstatistieken zonder cookies of trackers van derden."
+      },
+      {
+        "title": "Bewaartermijn",
+        "body": "Intakeverzoeken die geen zaak worden, verwijderen we na 12 maanden. Zaakdossiers bewaren we zolang de Nederlandse wet dat vereist voor identificatie en belasting, en daarna verwijderen we ze."
+      },
+      {
+        "title": "Uw rechten",
+        "body": "U kunt per e-mail inzage, correctie of verwijdering van uw persoonsgegevens aanvragen. Wij reageren binnen 30 dagen."
+      }
     ]
   },
   "terms": {
@@ -333,12 +617,37 @@
     "title": "Algemene voorwaarden",
     "updated": "Laatst bijgewerkt: augustus 2026",
     "sections": [
-      { "title": "Reikwijdte", "body": "Revault levert non-custodial technische diensten om de toegang te herstellen tot cryptowallets die eigendom zijn van, of wettelijk onder de bevoegdheid vallen van, de klant. Revault herstelt geen gestolen tegoeden, traceert geen transacties en onderzoekt geen fraude." },
-      { "title": "Beoordeling", "body": "De eerste beoordeling is gratis en vrijblijvend. Het is een inschatting van technische haalbaarheid, geen garantie op succes." },
-      { "title": "Overeenkomst", "body": "Er begint geen herstelwerk voordat beide partijen een schriftelijke serviceovereenkomst hebben getekend over aanpak, vergoeding, vertrouwelijkheid en beveiliging. Een NDA is op verzoek beschikbaar." },
-      { "title": "Vergoeding", "body": "De vergoeding is een percentage van de herstelde waarde zoals afgesproken in de serviceovereenkomst, pas verschuldigd nadat de toegang succesvol is hersteld. Mislukt het herstel, dan is geen vergoeding verschuldigd." },
-      { "title": "Non-custodial", "body": "Revault neemt nooit tegoeden van klanten in beheer. Na een geslaagd herstel opent de klant de wallet en verplaatst de tegoeden naar een wallet onder eigen beheer." },
-      { "title": "Toepasselijk recht", "body": "Op deze voorwaarden en elke serviceovereenkomst is Nederlands recht van toepassing. Geschillen worden voorgelegd aan de bevoegde rechter in Nederland." }
+      {
+        "title": "Reikwijdte",
+        "body": "Revault levert non-custodial technische diensten om de toegang te herstellen tot cryptowallets die eigendom zijn van, of wettelijk onder de bevoegdheid vallen van, de klant. Revault herstelt geen gestolen tegoeden, traceert geen transacties en onderzoekt geen fraude."
+      },
+      {
+        "title": "Beoordeling",
+        "body": "De eerste beoordeling is gratis en vrijblijvend. Het is een inschatting van technische haalbaarheid, geen garantie op succes."
+      },
+      {
+        "title": "Overeenkomst",
+        "body": "Er begint geen herstelwerk voordat beide partijen een schriftelijke serviceovereenkomst hebben getekend over aanpak, vergoeding, vertrouwelijkheid en beveiliging. Een NDA is op verzoek beschikbaar."
+      },
+      {
+        "title": "Vergoeding",
+        "body": "De vergoeding is een percentage van de herstelde waarde zoals afgesproken in de serviceovereenkomst, pas verschuldigd nadat de toegang succesvol is hersteld. Mislukt het herstel, dan is geen vergoeding verschuldigd."
+      },
+      {
+        "title": "Non-custodial",
+        "body": "Revault neemt nooit tegoeden van klanten in beheer. Na een geslaagd herstel opent de klant de wallet en verplaatst de tegoeden naar een wallet onder eigen beheer."
+      },
+      {
+        "title": "Toepasselijk recht",
+        "body": "Op deze voorwaarden en elke serviceovereenkomst is Nederlands recht van toepassing. Geschillen worden voorgelegd aan de bevoegde rechter in Nederland."
+      }
     ]
+  },
+  "og": {
+    "title": "Weer toegang tot de wallet die van u is.",
+    "subtitle": "Non-custodial crypto wallet herstel bij vergeten wachtwoorden, onvolledige herstelzinnen en verouderde wallets.",
+    "promise1": "No cure, no pay",
+    "promise2": "Non-custodial",
+    "promise3": "Contract vooraf"
   }
 }
