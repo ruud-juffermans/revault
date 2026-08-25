@@ -1,0 +1,28 @@
+# revault.nl is a CLIENT-ONLY deployment (the Next.js site). Its backend (the
+# intake form + page-view analytics + admin API) lives in the shared platform
+# server (../ruudjuffermans-server → api.ruudjuffermans.nl) as the "revault"
+# module.
+services:
+  client:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        # Baked into the client at build time; the browser calls the platform
+        # API cross-origin (its CORS allowlists this site's origin).
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-https://api.ruudjuffermans.nl}
+        NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-https://revault.nl}
+    environment:
+      - NEXT_PUBLIC_SITE_URL=${NEXT_PUBLIC_SITE_URL:-https://revault.nl}
+    labels:
+      # Traefik compress middleware (gzip/brotli/zstd on Traefik v3), attach
+      # `revault-compress@docker` to the router in Dokploy to activate it.
+      - traefik.http.middlewares.revault-compress.compress=true
+    restart: unless-stopped
+    networks:
+      - dokploy-network
+
+networks:
+  # Dokploy's proxy network; Traefik routes revault.nl (and www) here.
+  dokploy-network:
+    external: true
