@@ -11,7 +11,7 @@ export const routing = defineRouting({
     "/wallets/[slug]": { nl: "/wallets/[slug]", en: "/wallets/[slug]" },
     "/how-it-works": { nl: "/werkwijze", en: "/how-it-works" },
     "/pricing": { nl: "/tarieven", en: "/pricing" },
-    "/about": { nl: "/over-ons", en: "/about" },
+    "/about": { nl: "/over-mij", en: "/about" },
     "/faq": "/faq",
     "/blog": "/blog",
     "/blog/[slug]": "/blog/[slug]",

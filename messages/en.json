@@ -3,20 +3,24 @@
     "title": "Revault — Crypto Wallet Recovery",
     "titleTemplate": "%s · Revault",
     "siteName": "Revault — Crypto Wallet Recovery",
-    "description": "Non-custodial crypto wallet recovery for forgotten passwords, incomplete seed phrases, damaged wallet files and legacy wallets. No recovery, no fee."
+    "description": "Non-custodial crypto wallet recovery by Ruud Juffermans for forgotten passwords, incomplete seed phrases, damaged wallet files and legacy wallets. No recovery, no fee."
   },
   "common": {
     "skipToContent": "Skip to content",
     "languageLabel": "Language",
     "themeLight": "Switch to light mode",
     "themeDark": "Switch to dark mode",
-    "orgDescription": "Dutch, non-custodial crypto wallet recovery specialist. You only pay when access is restored."
+    "orgDescription": "Non-custodial crypto wallet recovery in the Netherlands, run by Ruud Juffermans. You only pay when access is restored.",
+    "language_nl": "Nederlands",
+    "language_en": "English",
+    "offerCatalogName": "Wallet recovery services",
+    "offerDescription": "No recovery, no fee: standard 20% of the recovered value, agreed in writing beforehand."
   },
   "nav": {
     "services": "Wallet recovery",
     "howItWorks": "How it works",
     "pricing": "Pricing",
-    "about": "About",
+    "about": "About me",
     "faq": "FAQ",
     "blog": "Blog",
     "contact": "Contact",
@@ -24,12 +28,28 @@
     "openMenu": "Open menu",
     "closeMenu": "Close menu"
   },
+  "founder": {
+    "name": "Ruud Juffermans",
+    "role": "Founder of Revault, wallet recovery specialist",
+    "eyebrow": "Who you're dealing with",
+    "title": "One person, from first email to handover.",
+    "intro": "Revault is me, Ruud Juffermans. There is no team, no sales desk and no ticket queue: I read your intake, I assess it, I do the technical work and I sit next to you at the handover.",
+    "bio": {
+      "one": "I studied computer science with a minor in blockchain and cryptocurrency (business, law and IT), and worked as a cryptocurrency data specialist for the Dutch police, where I built tooling for financial and crypto investigations.",
+      "two": "Before that I was a data engineer at the Netherlands Aerospace Centre, and for four years I taught Python, SQL and blockchain technology online. Explaining what is and isn't possible, in plain language, is most of this job.",
+      "three": "Working one-on-one is a deliberate choice. Wallet material is the most sensitive thing you can hand someone. With me it passes through exactly one pair of hands, on systems I control, under an agreement we both sign."
+    },
+    "portraitAlt": "Ruud Juffermans",
+    "speakingAlt": "Ruud Juffermans giving a talk",
+    "moreAbout": "More about me",
+    "linkedin": "LinkedIn"
+  },
   "footer": {
-    "blurb": "Revault restores access to crypto wallets you already own but can no longer open. Non-custodial, contract-first, and you only pay when it works.",
-    "noScamRecovery": "We do not recover stolen funds, trace transactions or investigate scams. Blockchain transactions are irreversible — anyone promising otherwise is not being honest with you.",
-    "servicesHeading": "Services",
+    "blurb": "Revault is the one-person practice of Ruud Juffermans. I restore access to crypto wallets you already own but can no longer open. Non-custodial, contract-first, and you only pay when it works.",
+    "noScamRecovery": "I do not recover stolen funds, trace transactions or investigate scams. Blockchain transactions are irreversible — anyone promising otherwise is not being honest with you.",
+    "servicesHeading": "Wallet recovery",
     "walletsHeading": "Wallets",
-    "companyHeading": "Company",
+    "companyHeading": "Revault",
     "privacy": "Privacy",
     "terms": "Terms",
     "rights": "All rights reserved.",
@@ -42,11 +62,11 @@
     },
     "nonCustodial": {
       "title": "Non-custodial",
-      "body": "We rebuild access. You open the wallet and move the funds yourself."
+      "body": "I rebuild access. You open the wallet and move the funds yourself."
     },
     "onSiteOrRemote": {
       "title": "On-site or remote",
-      "body": "At your location, our office, or via a secured remote session."
+      "body": "At your location, my office, or via a secured remote session."
     },
     "contractFirst": {
       "title": "Contract first",
@@ -55,7 +75,7 @@
   },
   "cta": {
     "title": "Locked out of your wallet?",
-    "body": "Tell us what happened and what you still have. We'll give you an honest read on whether recovery is realistic — free, and without obligation.",
+    "body": "Tell me what happened and what you still have. I'll give you an honest read on whether recovery is realistic — free, and without obligation.",
     "button": "Start a free assessment"
   },
   "notFound": {
@@ -65,21 +85,22 @@
   },
   "home": {
     "metaTitle": "Crypto Wallet Recovery — Revault",
-    "metaDescription": "Locked out of your crypto wallet? Revault restores access after forgotten passwords, incomplete seed phrases and damaged or legacy wallets. Non-custodial. No recovery, no fee.",
+    "metaDescription": "Revault restores access to crypto wallets: forgotten passwords, incomplete seed phrases, damaged wallet files and inherited wallets. One specialist, Netherlands-based, non-custodial, no recovery no fee.",
     "hero": {
-      "badge": "Non-custodial wallet recovery",
-      "title": "Get back into the wallet you still own.",
-      "subtitle": "Forgotten password, a seed phrase with a few wrong words, a wallet file from 2013 that won't open — we assess whether access can be rebuilt, and tell you honestly when it can't.",
+      "badge": "Wallet recovery — you keep the keys",
+      "title": "Crypto wallet recovery: get back into the wallet you still own.",
+      "subtitle": "Forgotten password, a seed phrase with a few wrong words, a wallet file from 2013 that won't open — I assess whether access can be rebuilt, and tell you honestly when it can't.",
       "points": {
-        "one": "You only pay if we succeed",
-        "two": "Non-custodial — we never hold your funds",
+        "one": "You only pay if I succeed",
+        "two": "I never take control of your funds: you open the wallet yourself, with me alongside if you wish",
         "three": "On-site in the Netherlands or fully remote"
       },
       "primaryCta": "Start a free assessment",
-      "secondaryCta": "See how it works"
+      "secondaryCta": "See how it works",
+      "heirs": "Also for heirs, executors and notaries who need access to an inherited wallet."
     },
     "services": {
-      "eyebrow": "What we recover",
+      "eyebrow": "What I recover",
       "title": "Six kinds of lockout, one process.",
       "lede": "Recovery works at the wallet level, not the coin level. What matters is the type of wallet and what you still have — not which currency is inside."
     },
@@ -92,15 +113,19 @@
       },
       "proven": {
         "title": "Honest assessments",
-        "body": "We tell you upfront when a case isn't viable. A completely lost seed phrase with no other material cannot be recovered — by us or anyone else."
+        "body": "I tell you upfront when a case isn't viable. A completely lost seed phrase with no other material cannot be recovered — by me or anyone else."
       },
       "noCureNoPay": {
         "title": "No recovery, no fee",
         "body": "There are no hourly rates and no upfront charges. The fee is a percentage of the recovered value, agreed in advance, and only due once you have access again."
       },
       "direct": {
-        "title": "Direct contact",
-        "body": "You deal with the specialist working on your case, not a ticket queue. Sessions happen remotely, at our office, at your premises or at your notary's."
+        "title": "One point of contact",
+        "body": "You deal with me, the person doing the work, from the first email to the handover. Sessions happen remotely, at my office, at your premises or at your notary's."
+      },
+      "custody": {
+        "title": "What happens at the moment of recovery?",
+        "body": "Whoever finds the password can open the wallet at that moment — including me. That is why the handover takes place in a supervised session where you open the wallet and move the funds yourself, as set out in the agreement. Where possible I work from a hash or copy so the original file stays with you."
       }
     }
   },
@@ -111,11 +136,11 @@
     "readMore": "Read the full process",
     "intake": {
       "title": "Intake & assessment",
-      "body": "You describe the wallet, what happened and what you still have. We assess whether recovery is technically realistic — free and non-binding."
+      "body": "You describe the wallet, what happened and what you still have. I assess whether recovery is technically realistic — free and non-binding."
     },
     "verification": {
       "title": "Verification",
-      "body": "Before accepting a case we verify your identity and evidence of ownership or legal authority, with risk-based KYC/AML checks."
+      "body": "Before accepting a case I verify your identity and ownership or authority — so I know the wallet is yours, or that you may act for it."
     },
     "agreement": {
       "title": "Agreement",
@@ -131,20 +156,24 @@
     }
   },
   "faq": {
-    "metaTitle": "Frequently asked questions",
-    "metaDescription": "Answers on cost, duration, what we need to start, what cannot be recovered, and how Revault keeps your case confidential.",
+    "metaTitle": "Frequently asked questions about crypto wallet recovery",
+    "metaDescription": "Answers on cost, duration, what I need to start, what cannot be recovered, and how I keep your case confidential.",
     "eyebrow": "FAQ",
-    "title": "Frequently asked questions",
-    "subtitle": "The questions we get before people decide to reach out.",
+    "title": "Frequently asked questions about crypto wallet recovery",
+    "subtitle": "The questions I get before people decide to reach out.",
     "allQuestions": "All questions",
     "items": {
       "needToStart": {
         "q": "What do you need from me to start?",
         "a": "Only your story: the type of wallet, what happened and what you still have — a wallet file, a backup, part of a seed phrase or the old device. Never share seed phrases, private keys or passwords at this stage."
       },
+      "whoInNl": {
+        "q": "Who can help with a forgotten bitcoin wallet password in the Netherlands?",
+        "a": "Revault, based in the Netherlands, recovers forgotten passwords for bitcoin wallets such as Bitcoin Core (wallet.dat), Electrum, MultiBit and Ledger and Trezor hardware wallets. Based on what you still remember — fragments, patterns, passwords from that period — I run a targeted search on systems without an internet connection. Sessions take place remotely, at my office, at your home or at the notary. You only pay on a successful recovery (standard 20% of the recovered value). Start with a free assessment via the contact form."
+      },
       "cost": {
         "q": "How much does a recovery cost?",
-        "a": "We work no cure, no pay. The standard fee is a percentage of the recovered value, agreed and contracted before we start, and only due after access is restored. High-value wallets get a custom rate."
+        "a": "I work no recovery, no fee. The standard fee is 20% of the recovered value, agreed and contracted before I start, and only due once you are back in your wallet yourself. High-value wallets get a lower custom percentage."
       },
       "duration": {
         "q": "How long does it take?",
@@ -152,15 +181,19 @@
       },
       "trust": {
         "q": "How can I trust you with my wallet?",
-        "a": "Both parties sign a service agreement under Dutch law before any work. You keep control of the wallet and the funds at all times: we rebuild access, you open the wallet and move the funds yourself."
+        "a": "You can recognise legitimate wallet recovery by four things I do as standard: a signed service agreement under Dutch law before any work; verification of your identity and ownership before a case is accepted; never asking for your seed phrase, private key or password by email or web form; and payment only after you are back in your wallet yourself. Anyone asking for upfront fees, offering guarantees, or promising to recover stolen crypto is describing something that cannot technically be done."
+      },
+      "custody": {
+        "q": "If you find my password, don't you have access to my wallet?",
+        "a": "Honest answer: at the moment of recovery anyone holding the password can open the wallet, including me. That is exactly why the handover happens in a supervised session in which you open the wallet and move the funds to a new wallet yourself — set out in the agreement, with all material deleted afterwards. For password cases I work from a hash or copy of the wallet file where possible, so the original never leaves you."
       },
       "chances": {
         "q": "What are the chances of success?",
-        "a": "It depends entirely on what you still have. A forgotten password with partial memory, or a seed phrase missing a few words, is often recoverable. We assess honestly before you commit."
+        "a": "It depends entirely on what you still have. A forgotten password with partial memory, or a seed phrase missing a few words, is often recoverable. I assess honestly before you commit."
       },
       "littleInfo": {
         "q": "Can you help if I have very little information?",
-        "a": "Sometimes. Limited information narrows the options but doesn't automatically rule recovery out. We'll ask a few questions and tell you upfront if we don't think we can help."
+        "a": "Sometimes. Limited information narrows the options but doesn't automatically rule recovery out. I'll ask a few questions and tell you upfront if I don't think I can help."
       },
       "currencies": {
         "q": "Which cryptocurrencies can you recover?",
@@ -172,46 +205,50 @@
       },
       "stolen": {
         "q": "Can you recover stolen crypto or scam losses?",
-        "a": "No. We don't take stolen-fund or scam cases, and we don't trace transactions. Any service claiming it can reverse a blockchain transaction is describing something that cannot be done."
+        "a": "No. I don't take stolen-fund or scam cases, and I don't trace transactions. Any service claiming it can reverse a blockchain transaction is describing something that cannot be done."
       },
       "lostSeed": {
         "q": "My seed phrase is completely gone. Can you help?",
-        "a": "Not if no other wallet material exists — no file, no key, no backup, no device. Nobody can recover that, including us."
+        "a": "Not if no other wallet material exists — no file, no key, no backup, no device. Nobody can recover that, including me."
       },
       "inheritance": {
         "q": "Do you help with inherited wallets?",
-        "a": "Yes. We work with heirs, executors, notaries and lawyers. Every inheritance case starts with verification of identity, authority and ownership before any technical work."
+        "a": "Yes. I work with heirs, executors, notaries and lawyers. Every inheritance case starts with verification of identity, authority and ownership before any technical work."
       },
       "location": {
         "q": "Do I have to come to you?",
-        "a": "No. Sessions can be fully remote over a secured connection, at our office, at your premises or at a notary's office. Your adviser is welcome to attend."
+        "a": "No. Sessions can be fully remote over a secured connection, at my office, at your premises or at a notary's office. Your adviser is welcome to attend."
       }
     }
   },
   "servicesPage": {
-    "metaTitle": "Wallet recovery services",
-    "metaDescription": "Password recovery, seed phrase reconstruction, damaged and legacy wallet files, hardware wallet defects and inheritance cases — non-custodial, no recovery no fee.",
+    "metaTitle": "Bitcoin & crypto wallet recovery: all services",
+    "metaDescription": "Six recovery services for bitcoin and crypto wallets: password, seed phrase, damaged file, legacy wallet, hardware wallet and inheritance. No recovery, no fee.",
     "eyebrow": "Services",
-    "title": "Wallet recovery services",
-    "subtitle": "What we can do depends on the type of wallet, the problem, and which material is still available. These are the cases we take on.",
+    "title": "Bitcoin and crypto wallet recovery",
+    "subtitle": "What I can do depends on the type of wallet, the problem, and which material is still available. These are the cases I take on.",
     "walletsEyebrow": "By wallet",
     "walletsTitle": "Wallet-specific guidance",
-    "walletsLede": "Each wallet has its own file formats, encryption and failure modes. Start from the wallet you have."
+    "walletsLede": "Each wallet has its own file formats, encryption and failure modes. Start from the wallet you have.",
+    "gridTitle": "My recovery services"
   },
   "serviceDetail": {
     "eyebrow": "Wallet recovery",
     "offer": "No recovery, no fee. Percentage of recovered value, agreed in advance.",
-    "canTitle": "What we can do",
-    "needTitle": "What we need from you",
-    "neverShare": "Never send seed phrases, private keys or passwords by email or through this website. We only work with sensitive material under a signed agreement, in a controlled environment.",
-    "faqTitle": "Common questions"
+    "canTitle": "What I can do",
+    "needTitle": "What I need from you",
+    "neverShare": "Never send seed phrases, private keys or passwords by email or through this website. I only work with sensitive material under a signed agreement, in a controlled environment.",
+    "faqTitle": "Common questions",
+    "cta": "Start a free assessment",
+    "ctaLede": "Not sure your situation fits? Describe what you have — I'll tell you honestly whether it's viable.",
+    "relatedTitle": "Related"
   },
   "services": {
     "password-recovery": {
       "name": "Password recovery",
       "short": "Forgotten wallet passwords, extra passphrases and encrypted backup files.",
-      "intro": "You remember some of it — a pattern, a few words, a year — but not enough. We turn what you remember into a targeted search on isolated systems.",
-      "metaTitle": "Wallet password recovery",
+      "intro": "You remember some of it — a pattern, a few words, a year — but not enough. I turn what you remember into a targeted search on isolated systems.",
+      "metaTitle": "Forgot your wallet password? Password recovery",
       "metaDescription": "Forgotten your crypto wallet password or passphrase? Revault runs targeted, offline recovery from what you still remember. No recovery, no fee.",
       "can": {
         "one": "Encrypted wallet files (wallet.dat, keystore, Electrum, Ledger/Trezor passphrase)",
@@ -226,7 +263,7 @@
       "faq": {
         "one": {
           "q": "What if I remember nothing at all?",
-          "a": "A search with no clues is rarely realistic. We'll tell you that at the intake instead of taking the case."
+          "a": "A search with no clues is rarely realistic. I'll tell you that at the intake instead of taking the case."
         },
         "two": {
           "q": "Do you keep my wallet file?",
@@ -238,7 +275,7 @@
       "name": "Seed phrase reconstruction",
       "short": "Missing, wrong or swapped words in a 12- or 24-word recovery phrase.",
       "intro": "A seed phrase with a few missing or misspelled words, in the wrong order, or that fails validation can often be reconstructed — provided enough of it survives.",
-      "metaTitle": "Seed phrase reconstruction",
+      "metaTitle": "Seed phrase lost or incomplete? Reconstruction",
       "metaDescription": "Seed phrase with missing, wrong or swapped words? Revault reconstructs incomplete recovery phrases on air-gapped systems. No recovery, no fee.",
       "can": {
         "one": "A few missing or misspelled words",
@@ -253,18 +290,18 @@
       "faq": {
         "one": {
           "q": "How many missing words is too many?",
-          "a": "It depends on the phrase length and what else is known. We calculate the search space before accepting the case."
+          "a": "It depends on the phrase length and what else is known. I calculate the search space before accepting the case."
         },
         "two": {
           "q": "My phrase is completely gone.",
-          "a": "Then reconstruction is not possible for anyone. We only take cases where meaningful material remains."
+          "a": "Then reconstruction is not possible for anyone. I only take cases where meaningful material remains."
         }
       }
     },
     "damaged-wallet": {
       "name": "Damaged wallet files",
       "short": "Corrupted wallet.dat, broken keystores and unreadable backups.",
-      "intro": "A wallet file that refuses to open is not necessarily lost. We analyse the file's structure and rebuild what's recoverable in a compatible environment.",
+      "intro": "A wallet file that refuses to open is not necessarily lost. I analyse the file's structure and rebuild what's recoverable in a compatible environment.",
       "metaTitle": "Damaged wallet file recovery",
       "metaDescription": "Corrupted or damaged wallet file? Revault analyses and repairs broken wallet.dat, keystore and backup files. No recovery, no fee.",
       "can": {
@@ -280,7 +317,7 @@
       "faq": {
         "one": {
           "q": "Can you recover a deleted wallet file?",
-          "a": "Sometimes, if the drive hasn't been heavily used since. Stop using the device and contact us."
+          "a": "Sometimes, if the drive hasn't been heavily used since. Stop using the device and contact me."
         },
         "two": {
           "q": "Do you need the drive physically?",
@@ -291,7 +328,7 @@
     "legacy-wallet": {
       "name": "Legacy wallet recovery",
       "short": "Discontinued or unsupported wallet software from the early years.",
-      "intro": "MultiBit, Jaxx, old Blockchain.info backups, early Bitcoin Core: software that no longer runs on a modern machine. We rebuild a compatible environment and extract the keys.",
+      "intro": "MultiBit, Jaxx, old Blockchain.info backups, early Bitcoin Core: software that no longer runs on a modern machine. I rebuild a compatible environment and extract the keys.",
       "metaTitle": "Legacy wallet recovery",
       "metaDescription": "Old wallet from discontinued software that no longer opens? Revault rebuilds compatible environments for MultiBit, Jaxx, early Bitcoin Core and more.",
       "can": {
@@ -311,7 +348,7 @@
         },
         "two": {
           "q": "Will you move my coins for me?",
-          "a": "No. We restore access; you move the funds to a new wallet yourself, with us present if you want."
+          "a": "No. I restore access; you move the funds to a new wallet yourself, with me present if you want."
         }
       }
     },
@@ -334,7 +371,7 @@
       "faq": {
         "one": {
           "q": "Can you bypass the PIN?",
-          "a": "We don't attack the device's secure element. Recovery comes from the recovery phrase, passphrase knowledge or hardware repair."
+          "a": "I don't attack the device's secure element. Recovery comes from the recovery phrase, passphrase knowledge or hardware repair."
         },
         "two": {
           "q": "My device is from a discontinued brand.",
@@ -343,10 +380,10 @@
       }
     },
     "inheritance": {
-      "name": "Inheritance & professional cases",
+      "name": "Inherited wallets (heirs and notaries)",
       "short": "Access to inherited wallets for heirs, executors, notaries and lawyers.",
-      "intro": "When someone passes away and leaves crypto behind, the technical problem is only half the story. We work alongside notaries, executors and lawyers, with verification of authority before anything else.",
-      "metaTitle": "Inherited crypto wallet recovery",
+      "intro": "When someone passes away and leaves crypto behind, the technical problem is only half the story. I work alongside notaries, executors and lawyers, with verification of authority before anything else.",
+      "metaTitle": "Crypto inheritance: recovery of inherited wallets for heirs and notaries",
       "metaDescription": "Inherited a crypto wallet you cannot access? Revault supports heirs, executors, notaries and lawyers with verified, confidential recovery.",
       "can": {
         "one": "Locating and opening wallets on a deceased person's devices",
@@ -361,11 +398,11 @@
       "faq": {
         "one": {
           "q": "Can the notary attend the recovery?",
-          "a": "Yes, and we encourage it. Sessions can be held at the notary's office."
+          "a": "Yes, and I encourage it. Sessions can be held at the notary's office."
         },
         "two": {
           "q": "How do you handle multiple heirs?",
-          "a": "Funds move to a wallet designated by the estate's authorised representative, never to us."
+          "a": "Funds move to a wallet designated by the estate's authorised representative, never to me."
         }
       }
     }
@@ -377,21 +414,21 @@
       "name": "Ledger",
       "title": "Ledger wallet recovery",
       "intro": "Broken Ledger, forgotten PIN or passphrase, or a recovery sheet with errors. Your coins are on the blockchain, not on the device.",
-      "metaTitle": "Ledger wallet recovery",
+      "metaTitle": "Ledger wallet recovery — broken device, PIN or seed phrase",
       "metaDescription": "Locked out of your Ledger? Revault restores access after device defects, forgotten PINs and incomplete recovery phrases. No recovery, no fee."
     },
     "trezor": {
       "name": "Trezor",
       "title": "Trezor wallet recovery",
       "intro": "Lost or broken Trezor, forgotten passphrase, or a seed with a few wrong words. Usually recoverable if the phrase mostly survives.",
-      "metaTitle": "Trezor wallet recovery",
+      "metaTitle": "Trezor wallet recovery — broken device, PIN or seed phrase",
       "metaDescription": "Lost or broken Trezor? Revault restores access from an incomplete recovery phrase or a defective device. Non-custodial. No recovery, no fee."
     },
     "metamask": {
       "name": "MetaMask",
       "title": "MetaMask wallet recovery",
       "intro": "Forgotten MetaMask password with the browser vault still present, or a secret recovery phrase with errors.",
-      "metaTitle": "MetaMask wallet recovery",
+      "metaTitle": "MetaMask password forgotten or seed phrase lost — recovery",
       "metaDescription": "Forgotten your MetaMask password or lost part of your secret recovery phrase? Revault recovers access from the browser vault or partial phrase."
     },
     "electrum": {
@@ -405,7 +442,7 @@
       "name": "Bitcoin Core",
       "title": "Bitcoin Core wallet.dat recovery",
       "intro": "Encrypted or corrupted wallet.dat files, including early ones from 2009–2013.",
-      "metaTitle": "Bitcoin Core wallet.dat recovery",
+      "metaTitle": "Bitcoin Core wallet.dat recovery — forgotten password or corrupt file",
       "metaDescription": "Forgotten wallet.dat password or corrupted Bitcoin Core wallet? Revault runs targeted offline recovery on wallet.dat files from any era."
     },
     "blockchain-com": {
@@ -428,15 +465,16 @@
       "intro": "Jaxx Liberty shut down in 2023. With the 12-word backup phrase — even an imperfect one — access can be rebuilt in a modern wallet.",
       "metaTitle": "Jaxx Liberty wallet recovery",
       "metaDescription": "Jaxx Liberty is gone but your coins are not. Revault recovers access from Jaxx backup phrases and legacy app data."
-    }
+    },
+    "readMoreTitle": "Further reading"
   },
   "howItWorks": {
     "metaTitle": "How wallet recovery works",
     "metaDescription": "Five steps from intake to handover: assessment, verification, agreement, offline recovery and a non-custodial handover.",
     "eyebrow": "How it works",
-    "title": "From first contact to handover.",
+    "title": "How crypto wallet recovery works at Revault",
     "subtitle": "Every case follows the same structured, transparent process, so you know what happens at each stage and nothing sensitive is handled before the paperwork is in place.",
-    "securityTitle": "How we keep your case safe",
+    "securityTitle": "How I keep your case safe",
     "securityLede": "Security is not a feature, it's the constraint everything else is designed around.",
     "security": {
       "offline": {
@@ -445,24 +483,25 @@
       },
       "nda": {
         "title": "NDA before details",
-        "body": "On request we sign a non-disclosure agreement before you share anything about your case."
+        "body": "On request I sign a non-disclosure agreement before you share anything about your case."
       },
       "verification": {
         "title": "Verification first",
-        "body": "Identity, ownership or authority are verified with risk-based KYC/AML checks before a case is accepted."
+        "body": "So I know the wallet is yours, or that you may act for it: identity and ownership or authority are verified with risk-based KYC/AML checks before a case is accepted."
       },
       "location": {
         "title": "Your choice of location",
-        "body": "Remote over a secured connection, at our office, at your premises or at a notary's — with your adviser present if you wish."
+        "body": "Remote over a secured connection, at my office, at your premises or at a notary's — with your adviser present if you wish."
       }
-    }
+    },
+    "stepsTitle": "The five steps"
   },
   "pricing": {
     "metaTitle": "Pricing — no recovery, no fee",
     "metaDescription": "Revault charges a percentage of the recovered value, agreed in advance and only due after access is restored. No upfront costs, no hourly rates.",
     "eyebrow": "Pricing",
-    "title": "No recovery, no fee.",
-    "subtitle": "No upfront costs and no hourly rates. You pay a fee only when you have access again — and you know that fee before we start.",
+    "title": "Wallet recovery pricing: no recovery, no fee.",
+    "subtitle": "No upfront costs and no hourly rates. You pay a fee only when you have access again — and you know that fee before I start.",
     "standard": {
       "eyebrow": "Standard",
       "headline": "20% of recovered value",
@@ -471,7 +510,7 @@
     "custom": {
       "eyebrow": "High-value wallets",
       "headline": "Custom rate",
-      "body": "For significant holdings we agree a reduced percentage based on complexity and effort. Book a call to discuss."
+      "body": "For significant holdings I agree a reduced percentage based on complexity and effort. Book a call to discuss."
     },
     "note": "In nearly all cases the fee is the only thing you pay. Only in exceptional situations — international travel or physical data recovery by a partner — can extra costs apply, and those are always agreed in writing beforehand.",
     "faqTitle": "Pricing questions",
@@ -482,7 +521,7 @@
       },
       "highValue": {
         "q": "What if my wallet holds a large amount?",
-        "a": "We agree a lower percentage for high-value wallets. Contact us for a custom proposal."
+        "a": "I agree a lower percentage for high-value wallets. Contact me for a custom proposal."
       },
       "hidden": {
         "q": "Are there hidden fees?",
@@ -492,20 +531,25 @@
         "q": "When can extra costs apply?",
         "a": "Only for exceptional items like travel or third-party physical data recovery, and always agreed in writing before they're incurred."
       }
-    }
+    },
+    "cta": "Start a free assessment",
+    "customCta": "Book a call",
+    "summary": "Wallet recovery at Revault costs a standard 20% of the recovered value, and nothing if the recovery fails. There is no hourly rate and no deposit; the initial assessment is free. The percentage is written into the service agreement you sign before technical work starts, and is settled during the supervised handover in which you open the wallet and move the funds to a new wallet yourself."
   },
   "about": {
-    "metaTitle": "About Revault",
-    "metaDescription": "Revault is a Dutch, non-custodial crypto wallet recovery specialist built on honest assessments, contract-first work and never holding client funds.",
-    "eyebrow": "About",
+    "metaTitle": "About Ruud Juffermans — crypto wallet recovery in the Netherlands",
+    "metaDescription": "Revault is the one-person wallet recovery practice of Ruud Juffermans: honest assessments, contract-first work, air-gapped systems and never holding client funds.",
+    "eyebrow": "About me",
     "title": "Recovery without the shady part.",
-    "subtitle": "Crypto recovery has a reputation problem. Revault exists to be the version that a notary would be comfortable recommending.",
+    "subtitle": "Crypto recovery has a reputation problem. I started Revault to be the version that a notary would be comfortable recommending.",
     "story": {
       "one": "Most people who lose access to a wallet did nothing wrong. They chose a strong password in 2014, wrote a seed phrase on paper that got damp, or inherited a laptop from a parent who never explained what was on it.",
-      "two": "The industry that grew up around those people is split between serious engineers and outright scammers, and from the outside they look the same. We built Revault around the things that make the difference visible: a contract before work, verification before a case is accepted, air-gapped systems, and a fee that only exists when access is restored.",
-      "three": "We say no to cases we can't win. A completely lost seed phrase, stolen funds, a transaction to the wrong address — we'll tell you that in the first conversation rather than let you hope."
+      "two": "The industry that grew up around those people is split between serious engineers and outright scammers, and from the outside they look the same. I built Revault around the things that make the difference visible: a contract before work, verification before a case is accepted, air-gapped systems, and a fee that only exists when access is restored.",
+      "three": "I say no to cases I can't win. A completely lost seed phrase, stolen funds, a transaction to the wrong address — I'll tell you that in the first conversation rather than let you hope."
     },
-    "valuesTitle": "What we hold ourselves to",
+    "whoEyebrow": "Who I am",
+    "whoTitle": "Ruud Juffermans",
+    "valuesTitle": "What I hold myself to",
     "values": {
       "honesty": {
         "title": "Honest first",
@@ -517,25 +561,38 @@
       },
       "control": {
         "title": "You stay in control",
-        "body": "We never hold funds. You open the wallet and move the assets yourself."
+        "body": "I never hold funds. You open the wallet and move the assets yourself."
       }
     }
   },
   "blog": {
-    "metaTitle": "Blog",
+    "metaTitle": "Blog: guides on crypto wallet recovery",
     "metaDescription": "Practical guides on wallet access, seed phrases, legacy wallet software and how to avoid recovery scams.",
     "eyebrow": "Blog",
-    "title": "Guides & insights",
-    "subtitle": "What we've learned about wallets, backups and the people trying to exploit those who lost access to them.",
+    "title": "Guides on wallet recovery and access",
+    "subtitle": "What I've learned about wallets, backups and the people trying to exploit those who lost access to them.",
     "empty": "No posts yet.",
-    "fallbackNotice": "This article is not yet available in English and is shown in Dutch."
+    "fallbackNotice": "This article is not yet available in English and is shown in Dutch.",
+    "relatedTitle": "Related services",
+    "byline": "By {name}"
+  },
+  "newsletter": {
+    "title": "Occasional guides by e-mail",
+    "body": "A short e-mail when I publish a new guide on wallets, backups or recovery scams. A few times a year, nothing else.",
+    "emailLabel": "E-mail address",
+    "submit": "Subscribe",
+    "submitting": "Sending…",
+    "success": "Thanks, you're on the list.",
+    "error": "Something went wrong. Please try again in a moment.",
+    "invalidEmail": "Enter a valid e-mail address.",
+    "privacy": "Your address is stored by me only, never shared, and you can unsubscribe with one e-mail."
   },
   "contact": {
     "metaTitle": "Start a free assessment",
-    "metaDescription": "Tell us about your wallet and what happened. We'll assess whether recovery is realistic — free, confidential and without obligation.",
+    "metaDescription": "Tell me about your wallet and what happened. I'll assess whether recovery is realistic — free, confidential and without obligation.",
     "eyebrow": "Free assessment",
-    "title": "Tell us what happened.",
-    "subtitle": "Describe the wallet, the problem and what you still have. You'll hear from a specialist within two working days with an honest read on your case.",
+    "title": "Tell me what happened.",
+    "subtitle": "Describe the wallet, the problem and what you still have. You'll hear from me personally within two working days with an honest read on your case.",
     "form": {
       "name": "Name",
       "email": "Email",
@@ -547,11 +604,14 @@
       "issueType": "What's the problem?",
       "description": "Describe your situation",
       "descriptionPlaceholder": "What kind of wallet, when it was created, what happened, and what you still have (files, backups, devices, partial phrases). No secrets, please.",
-      "consent": "I understand that Revault will verify identity and ownership before accepting a case, and I agree to the privacy policy.",
+      "consent": "I understand that Revault will verify identity and ownership or authority before accepting a case, and I agree to the <privacy>privacy policy</privacy>.",
       "submit": "Request assessment",
       "submitting": "Sending…",
-      "genericError": "Something went wrong. Please try again or email us directly.",
-      "secretWarning": "Never enter seed phrases, private keys or passwords in this form. We will never ask for them by email."
+      "genericError": "Something went wrong. Please try again in a moment.",
+      "secretWarning": "Never enter seed phrases, private keys or passwords in this form. I will never ask for them by email.",
+      "required": "This field is required.",
+      "missingFields": "Please complete the highlighted fields to send your request.",
+      "invalidEmail": "Enter a valid email address."
     },
     "walletTypes": {
       "software": "Software wallet (desktop / mobile / browser)",
@@ -570,35 +630,40 @@
       "other": "Something else"
     },
     "success": {
-      "title": "Thanks — we've received your case.",
-      "body": "Your reference is {reference}. A specialist will get back to you within two working days. Meanwhile: don't reinstall software, don't factory-reset devices, and stop writing to any drive that might hold wallet data."
+      "title": "Thanks — I've received your case.",
+      "body": "Your reference is {reference}. I'll get back to you personally within two working days. Meanwhile: don't reinstall software, don't factory-reset devices, and stop writing to any drive that might hold wallet data."
     },
     "aside": {
       "title": "What happens next",
+      "personal": "Every request lands with me, Ruud Juffermans. No intake desk, no hand-offs: the person who reads your message is the person who does the work.",
       "steps": {
-        "one": "A specialist reviews your description and replies with an honest assessment.",
-        "two": "If it looks viable, we schedule a call and verify identity and ownership.",
-        "three": "Only then do we sign the agreement and start technical work."
+        "one": "I read your description and reply with an honest assessment.",
+        "two": "If it looks viable, we schedule a call and I verify identity and ownership.",
+        "three": "Only then do we sign the agreement and I start the technical work."
       },
-      "direct": "Prefer a call first? Mention it in your message and we'll send a scheduling link."
+      "direct": "Prefer a call first? Mention it in your message and I'll send a scheduling link."
     }
   },
   "privacy": {
     "metaTitle": "Privacy policy",
     "metaDescription": "How Revault handles personal data submitted through this website and during a recovery case.",
     "title": "Privacy policy",
-    "updated": "Last updated: August 2026",
+    "updated": "Last updated: November 2026",
     "sections": [
       {
-        "title": "What we collect",
-        "body": "Through the intake form: your name, email, optional phone number, and the description of your case. During a case: identity documents required for KYC/AML verification and the technical material needed for recovery, handled under the service agreement."
+        "title": "Who is responsible",
+        "body": "Revault is the trade name under which Ruud Juffermans, established in the Netherlands, provides wallet recovery services. I am the sole controller of the personal data described here; no employees or third-party processors have access to your case material."
       },
       {
-        "title": "What we never ask for online",
+        "title": "What I collect",
+        "body": "Through the intake form: your name, email, optional phone number, and the description of your case. Through the newsletter form: your e-mail address and the language you signed up in. During a case: identity documents required for KYC/AML verification and the technical material needed for recovery, handled under the service agreement."
+      },
+      {
+        "title": "What I never ask for online",
         "body": "Seed phrases, private keys and passwords. Any material of that kind is only handled after a signed agreement, in an isolated environment, and is deleted after handover."
       },
       {
-        "title": "How we use it",
+        "title": "How I use it",
         "body": "To assess and, if agreed, execute your case; to comply with legal obligations; and for anonymous page-view statistics without cookies or third-party trackers."
       },
       {
@@ -607,7 +672,7 @@
       },
       {
         "title": "Your rights",
-        "body": "You can request access, correction or deletion of your personal data by emailing us. We respond within 30 days."
+        "body": "You can request access, correction or deletion of your personal data by emailing me. I respond within 30 days."
       }
     ]
   },
@@ -615,11 +680,11 @@
     "metaTitle": "Terms & conditions",
     "metaDescription": "The general terms under which Revault provides wallet recovery services.",
     "title": "Terms & conditions",
-    "updated": "Last updated: August 2026",
+    "updated": "Last updated: November 2026",
     "sections": [
       {
         "title": "Scope",
-        "body": "Revault provides non-custodial technical services to restore access to cryptocurrency wallets owned by, or legally under the authority of, the client. Revault does not recover stolen funds, trace transactions or investigate fraud."
+        "body": "Revault is the trade name of Ruud Juffermans, established in the Netherlands. Revault provides non-custodial technical services to restore access to cryptocurrency wallets owned by, or legally under the authority of, the client. Revault does not recover stolen funds, trace transactions or investigate fraud."
       },
       {
         "title": "Assessment",

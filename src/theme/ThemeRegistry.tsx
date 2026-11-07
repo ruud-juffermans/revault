@@ -11,7 +11,8 @@ import theme from "./theme";
 export default function ThemeRegistry({ children }: { children: React.ReactNode }) {
   return (
     <AppRouterCacheProvider options={{ key: "mui", prepend: true }}>
-      <ThemeProvider theme={theme} defaultMode="system">
+      {/* modeStorageKey must match InitColorSchemeScript in [locale]/layout.tsx, or the page flashes the system theme before hydration. */}
+      <ThemeProvider theme={theme} defaultMode="system" modeStorageKey="revault-color-mode">
         <CssBaseline enableColorScheme />
         {children}
       </ThemeProvider>

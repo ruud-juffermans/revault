@@ -3,8 +3,9 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { SERVICE_SLUGS, WALLET_SLUGS } from "@/lib/services";
 import Logo from "./Logo";
+import NewsletterSignup from "./NewsletterSignup";
 
-const linkSx = { color: "text.secondary", textDecoration: "none", fontSize: "0.92rem", "&:hover": { color: "var(--app-accent)" } };
+const linkSx = { color: "text.secondary", textDecoration: "none", fontSize: "0.92rem", py: 0.75, display: "inline-block", alignSelf: "flex-start", "&:hover": { color: "var(--app-accent)" } };
 
 export default function Footer() {
   const t = useTranslations("footer");
@@ -25,11 +26,14 @@ export default function Footer() {
             <Typography variant="body2" sx={{ mt: 2.5, color: "text.secondary" }}>
               {t("noScamRecovery")}
             </Typography>
+            <Box sx={{ mt: 4 }}>
+              <NewsletterSignup source="footer" />
+            </Box>
           </Box>
 
           <Box>
             <Typography variant="overline" sx={{ display: "block", mb: 1.5 }}>{t("servicesHeading")}</Typography>
-            <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
+            <Box sx={{ display: "flex", flexDirection: "column", gap: 0.25 }}>
               {SERVICE_SLUGS.map((slug) => (
                 <Box key={slug} component={Link} href={{ pathname: "/services/[slug]", params: { slug } }} sx={linkSx}>
                   {ts(`${slug}.name`)}
@@ -40,7 +44,7 @@ export default function Footer() {
 
           <Box>
             <Typography variant="overline" sx={{ display: "block", mb: 1.5 }}>{t("walletsHeading")}</Typography>
-            <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
+            <Box sx={{ display: "flex", flexDirection: "column", gap: 0.25 }}>
               {WALLET_SLUGS.map((slug) => (
                 <Box key={slug} component={Link} href={{ pathname: "/wallets/[slug]", params: { slug } }} sx={linkSx}>
                   {tw(`${slug}.name`)}
@@ -51,7 +55,7 @@ export default function Footer() {
 
           <Box>
             <Typography variant="overline" sx={{ display: "block", mb: 1.5 }}>{t("companyHeading")}</Typography>
-            <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
+            <Box sx={{ display: "flex", flexDirection: "column", gap: 0.25 }}>
               <Box component={Link} href="/how-it-works" sx={linkSx}>{tn("howItWorks")}</Box>
               <Box component={Link} href="/pricing" sx={linkSx}>{tn("pricing")}</Box>
               <Box component={Link} href="/about" sx={linkSx}>{tn("about")}</Box>

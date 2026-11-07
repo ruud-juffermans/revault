@@ -34,10 +34,12 @@ export default function LanguageSwitcher() {
         sx={{
           opacity: isPending ? 0.6 : 1,
           "& .MuiToggleButton-root": {
-            px: 1.2,
-            py: 0.3,
-            minWidth: 0,
-            fontSize: "0.72rem",
+            px: 1.75,
+            py: 0,
+            minWidth: 40,
+            minHeight: 40,
+            borderColor: "var(--app-border-strong)",
+            fontSize: "0.8rem",
             fontWeight: 600,
             letterSpacing: "0.04em",
             "&.Mui-selected": { backgroundColor: "primary.main", color: "primary.contrastText", "&:hover": { backgroundColor: "primary.dark" } },
@@ -45,7 +47,7 @@ export default function LanguageSwitcher() {
         }}
       >
         {routing.locales.map((l) => (
-          <ToggleButton key={l} value={l} aria-label={l}>
+          <ToggleButton key={l} value={l} lang={l} aria-label={t(`language_${l}`)}>
             {l.toUpperCase()}
           </ToggleButton>
         ))}

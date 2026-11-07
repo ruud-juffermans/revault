@@ -8,7 +8,7 @@ import CtaBand from "@/components/CtaBand";
 import JsonLd from "@/components/JsonLd";
 import PageViewTracker from "@/components/PageViewTracker";
 
-const FAQ_KEYS = ["needToStart", "cost", "duration", "trust", "chances", "littleInfo", "currencies", "wrongAddress", "stolen", "lostSeed", "inheritance", "location"] as const;
+const FAQ_KEYS = ["needToStart", "whoInNl", "cost", "duration", "trust", "custody", "chances", "littleInfo", "currencies", "wrongAddress", "stolen", "lostSeed", "inheritance", "location"] as const;
 
 export async function generateMetadata({ params }: LocaleParams): Promise<Metadata> {
   const { locale } = await params;
@@ -26,7 +26,7 @@ export default async function FaqPage({ params }: LocaleParams) {
       <JsonLd data={{ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: items.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) }} />
       <PageHero eyebrow={t("eyebrow")} title={t("title")} subtitle={t("subtitle")} />
       <Section sx={{ pt: 0 }}>
-        <Faq items={items} />
+        <Faq items={items} headingLevel="h2" />
       </Section>
       <CtaBand />
     </>

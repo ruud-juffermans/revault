@@ -10,6 +10,10 @@ export interface PostMeta {
   slug: string;
   title: string;
   date: string;
+  /** Optional last-edit date (frontmatter `updated`); falls back to `date`. */
+  updated: string;
+  /** Optional short <title> (frontmatter `metaTitle`); falls back to `title`. */
+  metaTitle: string;
   excerpt: string;
   tags: string[];
   readingTime: string;
@@ -41,6 +45,8 @@ function metaFrom(slug: string, data: Record<string, unknown>, content: string):
     slug,
     title: (data.title as string) || "Untitled",
     date: (data.date as string) || "",
+    updated: (data.updated as string) || (data.date as string) || "",
+    metaTitle: (data.metaTitle as string) || (data.title as string) || "Untitled",
     excerpt: (data.excerpt as string) || "",
     tags: (data.tags as string[]) || [],
     readingTime: estimateReadingTime(content),
@@ -59,6 +65,11 @@ export function getBlogPosts(locale: Locale = DEFAULT_LOCALE): PostMeta[] {
     .filter((p): p is PostMeta => p !== null)
     .filter((p) => !p.date || new Date(p.date).getTime() <= Date.now())
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+}
+
+/** True when a post exists in this locale's own directory (not served via the Dutch fallback). */
+export function hasLocalizedPost(locale: Locale, slug: string): boolean {
+  return resolveFile(locale, slug)?.usedFallback === false;
 }
 
 export function getBlogPost(locale: Locale, slug: string) {

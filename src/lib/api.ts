@@ -29,7 +29,7 @@ export type IssueType =
   | "inheritance"
   | "other";
 
-// The intake form. Deliberately no field for secrets: we never ask for seed
+// The intake form. Deliberately no field for secrets: Revault never asks for seed
 // phrases, private keys or passwords over the web (see PRD §7).
 export interface IntakeBody {
   name: string;
@@ -51,6 +51,13 @@ export async function submitIntake(body: IntakeBody) {
     method: "POST",
     body: JSON.stringify(body),
   });
+}
+
+export type NewsletterSource = "footer" | "blog";
+
+/** Newsletter signup. The server answers 200 for any well-formed address. */
+export async function subscribeNewsletter(body: { email: string; locale: string; source: NewsletterSource; website?: string }) {
+  return request<{ success: boolean }>("/api/revault/newsletter", { method: "POST", body: JSON.stringify(body) });
 }
 
 // Fire-and-forget page-view beacon. Never throws.

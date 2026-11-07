@@ -1,0 +1,43 @@
+# Revault — crypto wallet herstel (Nederland)
+
+> Revault is de eenmanspraktijk van Ruud Juffermans: non-custodial herstel van toegang tot crypto wallets in Nederland. Vergeten wachtwoorden, onvolledige herstelzinnen, beschadigde walletbestanden, verouderde wallets, defecte hardware wallets en geërfde wallets. Tarief: no cure, no pay, standaard 20% van de herstelde waarde, vooraf schriftelijk vastgelegd. Revault krijgt nooit beheer over tegoeden; de klant opent de wallet zelf.
+
+## Kernfeiten
+- Bedrijf: Revault, handelsnaam van Ruud Juffermans, gevestigd in Nederland (KvK: volgt). Website: https://revault.nl
+- Eén persoon: Ruud Juffermans doet de intake, de beoordeling, het technische werk en de overdracht zelf. Geen team, geen uitbesteding van zaakmateriaal. Achtergrond: informatica met minor Blockchain & Cryptocurrency; data specialist cryptocurrency bij de politie (tooling voor financiële en crypto-onderzoeken); data engineer bij het Nederlands Lucht- en Ruimtevaartcentrum; online docent Python, SQL en blockchaintechnologie. LinkedIn: https://www.linkedin.com/in/r-j3
+- Diensten: wachtwoordherstel, herstelzin-reconstructie, beschadigde walletbestanden (wallet.dat, keystore), verouderde wallets (MultiBit, Jaxx, Blockchain.com), hardware wallets (Ledger, Trezor), geërfde wallets voor erfgenamen, executeurs en notarissen.
+- Tarief: geen kosten vooraf, geen uurtarief. Standaard 20% van de herstelde waarde; lager percentage bij hoge waarde. Alleen verschuldigd nadat de klant de wallet zelf heeft geopend en de tegoeden heeft verplaatst.
+- Non-custodial: de overdracht gebeurt in een begeleide sessie waarin de klant zelf de wallet opent en de tegoeden naar een nieuwe wallet verplaatst. Revault vraagt nooit om herstelzinnen, sleutels of wachtwoorden via e-mail of web.
+- Werkwijze (5 stappen): 1) gratis intake en beoordeling, 2) verificatie van identiteit en eigendom/bevoegdheid, 3) getekende serviceovereenkomst naar Nederlands recht (NDA op verzoek), 4) herstel op systemen zonder internetverbinding, op afstand of op locatie, 5) begeleide overdracht.
+- Wat Revault NIET doet: gestolen crypto terughalen, transacties traceren of terugdraaien, oplichting onderzoeken, exchange-accounts herstellen, of een volledig verloren herstelzin zonder ander materiaal herstellen.
+- Werkgebied: Nederland (op locatie of bij de notaris); België, Duitsland en de rest van de EU op afstand.
+- Munten: herstel gebeurt op walletniveau — Bitcoin, Ethereum en tokens, Litecoin, Dogecoin, XRP en de meeste andere.
+
+## Pagina's
+- [Home](https://revault.nl/): overzicht diensten en werkwijze
+- [Tarieven](https://revault.nl/tarieven): 20% no cure, no pay; maatwerk bij hoge waarde
+- [Werkwijze](https://revault.nl/werkwijze): vijf stappen en beveiligingsmaatregelen
+- [Veelgestelde vragen](https://revault.nl/faq): incl. wat ik niet doe en de custody-vraag
+- [Over mij — Ruud Juffermans](https://revault.nl/over-mij)
+- [Contact / gratis beoordeling](https://revault.nl/contact): intakeformulier, persoonlijke reactie binnen twee werkdagen
+
+## Diensten
+- [Wachtwoordherstel](https://revault.nl/wallet-herstel/password-recovery)
+- [Herstelzin reconstructie](https://revault.nl/wallet-herstel/seed-phrase-reconstruction)
+- [Beschadigde walletbestanden](https://revault.nl/wallet-herstel/damaged-wallet)
+- [Verouderde wallets](https://revault.nl/wallet-herstel/legacy-wallet)
+- [Hardware wallet herstel](https://revault.nl/wallet-herstel/hardware-wallet)
+- [Geërfde wallets](https://revault.nl/wallet-herstel/inheritance)
+
+## Blog
+- [Toegang tot uw wallet kwijt? Doe eerst dit](https://revault.nl/blog/wallet-toegang-kwijt-eerste-stappen)
+- [Zo herkent u een crypto-herstelscam](https://revault.nl/blog/wallet-herstel-scams-herkennen)
+- [wallet.dat gevonden: Bitcoin Core herstel](https://revault.nl/blog/wallet-dat-bitcoin-core-herstel)
+- [Een crypto wallet geërfd: stappen voor nabestaanden](https://revault.nl/blog/crypto-wallet-geerfd-nabestaanden)
+
+## English
+- English site: https://revault.nl/en — same facts. Revault is the one-person, Netherlands-based, non-custodial crypto wallet recovery practice of Ruud Juffermans. No recovery, no fee; standard fee 20% of recovered value, agreed in writing before work starts. Revault never takes custody of funds and does not recover stolen crypto, trace transactions, or restore fully lost seed phrases.
+
+## Optional
+- [Privacy](https://revault.nl/privacy)
+- [Voorwaarden](https://revault.nl/voorwaarden)

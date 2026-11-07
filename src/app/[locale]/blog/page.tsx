@@ -9,6 +9,7 @@ import PageHero from "@/components/PageHero";
 import Section from "@/components/Section";
 import CtaBand from "@/components/CtaBand";
 import PageViewTracker from "@/components/PageViewTracker";
+import NewsletterSignup from "@/components/NewsletterSignup";
 
 export async function generateMetadata({ params }: LocaleParams): Promise<Metadata> {
   const { locale } = await params;
@@ -43,6 +44,9 @@ export default async function BlogPage({ params }: LocaleParams) {
             ))}
           </Box>
         )}
+        <Box sx={{ mt: { xs: 6, md: 8 }, maxWidth: 720 }}>
+          <NewsletterSignup source="blog" variant="card" />
+        </Box>
       </Section>
       <CtaBand />
     </>

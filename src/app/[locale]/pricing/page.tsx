@@ -8,6 +8,8 @@ import Faq from "@/components/Faq";
 import TrustStrip from "@/components/TrustStrip";
 import CtaBand from "@/components/CtaBand";
 import PageViewTracker from "@/components/PageViewTracker";
+import LinkButton from "@/components/LinkButton";
+import { radii } from "@/theme/theme";
 
 export async function generateMetadata({ params }: LocaleParams): Promise<Metadata> {
   const { locale } = await params;
@@ -26,16 +28,22 @@ export default async function PricingPage({ params }: LocaleParams) {
       <PageHero eyebrow={t("eyebrow")} title={t("title")} subtitle={t("subtitle")} />
       <TrustStrip />
       <Section>
-        <Box sx={{ display: "grid", gap: 3, gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" } }}>
-          {(["standard", "custom"] as const).map((k) => (
-            <Box key={k} sx={{ p: 4, borderRadius: 3, border: "1px solid var(--app-border-soft)", backgroundColor: "var(--app-surface-elevated)" }}>
-              <Typography variant="overline" sx={{ display: "block", mb: 1 }}>{t(`${k}.eyebrow`)}</Typography>
-              <Typography variant="h2" component="p" sx={{ mb: 1.5 }}>{t(`${k}.headline`)}</Typography>
-              <Typography>{t(`${k}.body`)}</Typography>
-            </Box>
-          ))}
+        <Typography sx={{ maxWidth: 760, mb: 5, color: "text.primary" }}>{t("summary")}</Typography>
+        <Box sx={{ display: "grid", gap: 3, gridTemplateColumns: { xs: "1fr", md: "3fr 2fr" }, alignItems: "start" }}>
+          <Box sx={{ p: { xs: 4, md: 5 }, borderRadius: `${radii.card}px`, border: "2px solid var(--app-accent)", backgroundColor: "var(--app-surface-elevated)" }}>
+            <Typography variant="overline" sx={{ display: "block", mb: 1 }}>{t("standard.eyebrow")}</Typography>
+            <Typography variant="h1" component="p" sx={{ mb: 2, fontSize: "clamp(2rem, 3.5vw + 1rem, 3.25rem)" }}>{t("standard.headline")}</Typography>
+            <Typography sx={{ color: "text.primary", mb: 2 }}>{t("standard.body")}</Typography>
+            <Typography sx={{ mb: 3 }}>{t("note")}</Typography>
+            <LinkButton href="/contact" variant="contained">{t("cta")}</LinkButton>
+          </Box>
+          <Box sx={{ p: 4, borderRadius: `${radii.card}px`, border: "1px solid var(--app-border-soft)", backgroundColor: "var(--app-surface-elevated)" }}>
+            <Typography variant="overline" sx={{ display: "block", mb: 1 }}>{t("custom.eyebrow")}</Typography>
+            <Typography variant="h3" component="p" sx={{ mb: 1.5 }}>{t("custom.headline")}</Typography>
+            <Typography sx={{ mb: 3 }}>{t("custom.body")}</Typography>
+            <LinkButton href="/contact" variant="outlined">{t("customCta")}</LinkButton>
+          </Box>
         </Box>
-        <Typography variant="body2" sx={{ mt: 4, color: "text.secondary", maxWidth: 760 }}>{t("note")}</Typography>
       </Section>
       <Section tone="surface" title={t("faqTitle")}>
         <Faq items={faq} />

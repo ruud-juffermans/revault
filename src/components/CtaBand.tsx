@@ -6,7 +6,7 @@ import LinkButton from "./LinkButton";
 export default function CtaBand() {
   const t = useTranslations("cta");
   return (
-    <Box sx={{ py: { xs: 9, md: 12 }, backgroundColor: "var(--app-gray-900)", color: "var(--app-bg)" }}>
+    <Box component="aside" sx={{ py: { xs: 9, md: 12 }, backgroundColor: "var(--app-cta-bg)", color: "var(--app-cta-fg)" }}>
       <Container>
         <Box sx={{ display: "flex", flexDirection: { xs: "column", md: "row" }, alignItems: { md: "center" }, justifyContent: "space-between", gap: 4 }}>
           <Box sx={{ maxWidth: 640 }}>

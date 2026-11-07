@@ -19,6 +19,7 @@ const LIGHT = {
   surface: "#EFEDE6",
   surfaceElevated: "#FCFBF8",
   border: "#DDD9CE",
+  borderStrong: "#8E897C", // ≥3:1 on bg for control boundaries
   borderSoft: "#E8E5DB",
   divider: "#ECE9E0",
   gray50: "#F3F1EA",
@@ -31,15 +32,17 @@ const LIGHT = {
   gray700: "#2E3440",
   gray800: "#1B2029",
   gray900: "#0C0F14",
-  accent: "#B7791F",
-  accentHover: "#9A6417",
+  accent: "#8F5E17", // 5.1:1 on bg, white on it 5.6:1 (WCAG AA)
+  accentHover: "#7A4F12",
   accentLight: "#D9A441",
-  accentMuted: "rgba(183, 121, 31, 0.12)",
-  accentGlow: "rgba(183, 121, 31, 0.28)",
+  accentMuted: "rgba(143, 94, 23, 0.12)",
+  accentGlow: "rgba(143, 94, 23, 0.28)",
   onAccent: "#FFFFFF",
   textPrimary: "#0C0F14",
   textSecondary: "#4A5160",
   textMuted: "#535A68",
+  ctaBg: "#0C0F14",
+  ctaFg: "#F7F6F2",
 };
 
 const DARK = {
@@ -47,6 +50,7 @@ const DARK = {
   surface: "#131820",
   surfaceElevated: "#1A202A",
   border: "#2B3342",
+  borderStrong: "#4C5668",
   borderSoft: "#202734",
   divider: "#202734",
   gray50: "#1A202A",
@@ -68,6 +72,8 @@ const DARK = {
   textPrimary: "#F4F6F9",
   textSecondary: "#B8C0CD",
   textMuted: "#96A0B0",
+  ctaBg: "#1A202A",
+  ctaFg: "#F4F6F9",
 };
 
 const cssVarsFor = (t: typeof LIGHT) => ({
@@ -75,6 +81,7 @@ const cssVarsFor = (t: typeof LIGHT) => ({
   "--app-surface": t.surface,
   "--app-surface-elevated": t.surfaceElevated,
   "--app-border": t.border,
+  "--app-border-strong": t.borderStrong,
   "--app-border-soft": t.borderSoft,
   "--app-divider": t.divider,
   "--app-gray-50": t.gray50,
@@ -96,6 +103,8 @@ const cssVarsFor = (t: typeof LIGHT) => ({
   "--app-text-primary": t.textPrimary,
   "--app-text-secondary": t.textSecondary,
   "--app-text-muted": t.textMuted,
+  "--app-cta-bg": t.ctaBg,
+  "--app-cta-fg": t.ctaFg,
 });
 
 // Public palette: absolute hex + CSS-var references that swap per scheme.
@@ -113,6 +122,7 @@ export const palette = {
   surfaceElevated: "var(--app-surface-elevated)",
   bg: "var(--app-bg)",
   border: "var(--app-border)",
+  borderStrong: "var(--app-border-strong)",
   gray50: "var(--app-gray-50)",
   gray100: "var(--app-gray-100)",
   gray200: "var(--app-gray-200)",
@@ -161,12 +171,12 @@ const theme = createTheme({
     h3: { fontFamily: heading, fontWeight: 650, fontSize: "clamp(1.4rem, 1.2vw + 1rem, 1.75rem)", lineHeight: 1.22, letterSpacing: "-0.015em" },
     h4: { fontFamily: heading, fontWeight: 650, fontSize: "1.3rem", lineHeight: 1.3, letterSpacing: "-0.01em" },
     h5: { fontFamily: heading, fontWeight: 600, fontSize: "1.15rem", lineHeight: 1.4 },
-    h6: { fontFamily: heading, fontWeight: 600, fontSize: "1rem", lineHeight: 1.4 },
+    h6: { fontFamily: heading, fontWeight: 600, fontSize: "1.0625rem", lineHeight: 1.4 },
     body1: { fontSize: "1.0625rem", fontWeight: 400, lineHeight: 1.7, color: "var(--app-text-secondary)" },
     body2: { fontSize: "0.95rem", fontWeight: 400, lineHeight: 1.65 },
     subtitle1: { fontSize: "clamp(1.05rem, 0.6vw + 0.9rem, 1.25rem)", lineHeight: 1.6, fontWeight: 400, color: "var(--app-text-secondary)" },
     button: { fontFamily: "var(--font-body), 'Segoe UI', sans-serif", fontWeight: 600, textTransform: "none" as const, letterSpacing: "0.01em" },
-    overline: { fontFamily: "var(--font-body), 'Segoe UI', sans-serif", fontWeight: 600, fontSize: "0.72rem", letterSpacing: "0.18em", textTransform: "uppercase" as const },
+    overline: { fontFamily: "var(--font-body), 'Segoe UI', sans-serif", fontWeight: 600, fontSize: "0.78rem", letterSpacing: "0.16em", textTransform: "uppercase" as const },
   },
   shape: { borderRadius: 12 },
   spacing: 6,
@@ -182,6 +192,7 @@ const theme = createTheme({
             transitionDuration: "0.01ms !important",
             scrollBehavior: "auto !important",
           },
+          ".MuiButton-root:hover, .MuiButton-root:active, .MuiCard-root:hover": { transform: "none !important" },
         },
         html: {
           scrollBehavior: "smooth",
@@ -205,6 +216,12 @@ const theme = createTheme({
       defaultProps: { maxWidth: "lg" },
       styleOverrides: {
         root: { paddingLeft: 20, paddingRight: 20, "@media (min-width:600px)": { paddingLeft: 32, paddingRight: 32 } },
+      },
+    },
+    MuiButtonBase: {
+      styleOverrides: {
+        // MUI resets outline:0 on ButtonBase, which beats the global :focus-visible rule.
+        root: { "&.Mui-focusVisible": { outline: "2px solid var(--app-accent)", outlineOffset: 2 } },
       },
     },
     MuiButton: {
@@ -233,7 +250,7 @@ const theme = createTheme({
           },
         },
         outlinedPrimary: {
-          borderColor: "var(--app-border)",
+          borderColor: "var(--app-border-strong)",
           color: "var(--app-text-primary)",
           borderWidth: 1.5,
           "@media (hover: hover)": {
@@ -279,8 +296,8 @@ const theme = createTheme({
     },
     MuiChip: {
       styleOverrides: {
-        root: { fontWeight: 500, borderRadius: radii.pill, fontSize: "0.78rem" },
-        outlined: { borderColor: "var(--app-border)", color: "var(--app-text-secondary)" },
+        root: { fontWeight: 500, borderRadius: radii.pill, fontSize: "0.8125rem" },
+        outlined: { borderColor: "var(--app-border-strong)", color: "var(--app-text-secondary)" },
       },
     },
     MuiTextField: {

@@ -36,3 +36,6 @@ coverage/
 
 # Local dev compose override (auto-merged onto docker-compose.yml; not used on the VPS)
 docker-compose.override.yml
+
+# Third-party agent prompt library kept next to the project for reference; not part of the site.
+agency-agents/

@@ -36,6 +36,34 @@ export const WALLET_SERVICES: Record<WalletSlug, ServiceSlug[]> = {
   jaxx: ["legacy-wallet", "seed-phrase-reconstruction"],
 };
 
+/** Wallet pages that are relevant for a given service (inverse of WALLET_SERVICES). */
+export const SERVICE_WALLETS: Record<ServiceSlug, WalletSlug[]> = SERVICE_SLUGS.reduce((acc, s) => {
+  acc[s] = WALLET_SLUGS.filter((w) => WALLET_SERVICES[w].includes(s));
+  return acc;
+}, {} as Record<ServiceSlug, WalletSlug[]>);
+
+/** Blog posts (by slug) that belong to a service or wallet page — the pillar/cluster links. */
+export const SERVICE_POSTS: Partial<Record<ServiceSlug, string[]>> = {
+  "password-recovery": ["wallet-toegang-kwijt-eerste-stappen", "wallet-dat-bitcoin-core-herstel"],
+  "seed-phrase-reconstruction": ["wallet-toegang-kwijt-eerste-stappen"],
+  "damaged-wallet": ["wallet-dat-bitcoin-core-herstel"],
+  "legacy-wallet": ["wallet-dat-bitcoin-core-herstel"],
+  "hardware-wallet": ["wallet-toegang-kwijt-eerste-stappen"],
+  inheritance: ["crypto-wallet-geerfd-nabestaanden"],
+};
+export const WALLET_POSTS: Partial<Record<WalletSlug, string[]>> = {
+  "bitcoin-core": ["wallet-dat-bitcoin-core-herstel"],
+  ledger: ["wallet-toegang-kwijt-eerste-stappen"],
+  trezor: ["wallet-toegang-kwijt-eerste-stappen"],
+};
+/** Which service/wallet pages a blog post should link to (inverse of the two maps above). */
+export function postRelations(slug: string): { services: ServiceSlug[]; wallets: WalletSlug[] } {
+  return {
+    services: SERVICE_SLUGS.filter((s) => SERVICE_POSTS[s]?.includes(slug)),
+    wallets: WALLET_SLUGS.filter((w) => WALLET_POSTS[w]?.includes(slug)),
+  };
+}
+
 export function isServiceSlug(s: string): s is ServiceSlug {
   return (SERVICE_SLUGS as readonly string[]).includes(s);
 }

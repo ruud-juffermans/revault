@@ -15,6 +15,7 @@ const env = loadEnv({
 
 function makePrisma() {
   const intakes: Record<string, unknown>[] = [];
+  const subscribers: Record<string, unknown>[] = [];
   const prisma = {
     intake: {
       create: vi.fn(async ({ data }: { data: Record<string, unknown> }) => {
@@ -26,10 +27,39 @@ function makePrisma() {
       count: vi.fn(async () => intakes.length),
       findUnique: vi.fn(async ({ where }: { where: { reference: string } }) => intakes.find((i) => i.reference === where.reference) ?? null),
       update: vi.fn(),
+      delete: vi.fn(async () => { throw Object.assign(new Error("not found"), { code: "P2025" }); }),
+      groupBy: vi.fn(async () => Object.entries(intakes.reduce<Record<string, number>>((acc, i) => ({ ...acc, [i.status as string]: (acc[i.status as string] ?? 0) + 1 }), {})).map(([status, n]) => ({ status, _count: { _all: n } }))),
     },
-    pageView: { create: vi.fn(async ({ data }: { data: unknown }) => data) },
+    newsletterSubscriber: {
+      upsert: vi.fn(async ({ where, create, update }: { where: { email: string }; create: Record<string, unknown>; update: Record<string, unknown> }) => {
+        const existing = subscribers.find((s) => s.email === where.email);
+        if (existing) return Object.assign(existing, update);
+        const row = { id: `sub${subscribers.length}`, active: true, createdAt: new Date(), unsubscribedAt: null, ...create };
+        subscribers.push(row);
+        return row;
+      }),
+      findMany: vi.fn(async () => subscribers),
+      count: vi.fn(async ({ where }: { where?: { active?: boolean } } = {}) => subscribers.filter((s) => where?.active === undefined || s.active === where.active).length),
+      groupBy: vi.fn(async () => [{ source: "footer", _count: { _all: subscribers.length } }]),
+      update: vi.fn(async ({ where, data }: { where: { id: string }; data: Record<string, unknown> }) => {
+        const row = subscribers.find((s) => s.id === where.id);
+        if (!row) throw Object.assign(new Error("not found"), { code: "P2025" });
+        return Object.assign(row, data);
+      }),
+      delete: vi.fn(async ({ where }: { where: { id: string } }) => {
+        const i = subscribers.findIndex((s) => s.id === where.id);
+        if (i < 0) throw Object.assign(new Error("not found"), { code: "P2025" });
+        return subscribers.splice(i, 1)[0];
+      }),
+    },
+    pageView: {
+      create: vi.fn(async ({ data }: { data: unknown }) => data),
+      count: vi.fn(async () => 0),
+      groupBy: vi.fn(async () => []),
+    },
+    $queryRaw: vi.fn(async () => []),
   };
-  return { prisma: prisma as unknown as PrismaClient, intakes, mock: prisma };
+  return { prisma: prisma as unknown as PrismaClient, intakes, subscribers, mock: prisma };
 }
 
 const validBody = {
@@ -135,6 +165,78 @@ describe("admin API", () => {
     const app = createApp({ env, prisma, mailer: { send: async () => {} } });
     const res = await request(app).patch("/api/revault/admin/intakes/RV-202608-ABCD").set("Authorization", `Bearer ${env.ADMIN_SERVICE_TOKEN}`).send({ status: "bogus" });
     expect(res.status).toBe(400);
+  });
+});
+
+describe("POST /api/revault/newsletter", () => {
+  const mailer: Mailer = { send: async () => {} };
+  it("stores a signup, lower-cases the address and re-activates a known one", async () => {
+    const { prisma, subscribers, mock } = makePrisma();
+    const app = createApp({ env, prisma, mailer });
+    const res = await request(app).post("/api/revault/newsletter").send({ email: "Jan@Example.com", locale: "nl", source: "footer" });
+    expect(res.status).toBe(200);
+    expect(res.body).toEqual({ success: true });
+    expect(subscribers).toHaveLength(1);
+    expect(subscribers[0]).toMatchObject({ email: "jan@example.com", source: "footer", active: true });
+    subscribers[0].active = false;
+    await request(app).post("/api/revault/newsletter").send({ email: "jan@example.com" });
+    expect(subscribers).toHaveLength(1);
+    expect(subscribers[0].active).toBe(true);
+    expect(mock.newsletterSubscriber.upsert).toHaveBeenCalledTimes(2);
+  });
+  it("rejects a bad address and swallows the honeypot", async () => {
+    const { prisma, subscribers } = makePrisma();
+    const app = createApp({ env, prisma, mailer });
+    expect((await request(app).post("/api/revault/newsletter").send({ email: "nope" })).status).toBe(400);
+    const bot = await request(app).post("/api/revault/newsletter").send({ email: "bot@example.com", website: "x" });
+    expect(bot.status).toBe(200);
+    expect(subscribers).toHaveLength(0);
+  });
+});
+
+describe("admin API: stats, newsletter and analytics", () => {
+  const auth = { Authorization: `Bearer ${env.ADMIN_SERVICE_TOKEN}` };
+  it("counts intakes per status", async () => {
+    const { prisma } = makePrisma();
+    const app = createApp({ env, prisma, mailer: { send: async () => {} }, logger: { error: () => {}, info: () => {} } });
+    await request(app).post("/api/revault/intake").send(validBody);
+    const res = await request(app).get("/api/revault/admin/intakes/stats").set(auth);
+    expect(res.status).toBe(200);
+    expect(res.body.counts.NEW).toBe(1);
+    expect(res.body.counts.CLOSED).toBe(0);
+    expect(res.body.total).toBe(1);
+  });
+  it("404s when deleting an unknown intake", async () => {
+    const { prisma } = makePrisma();
+    const app = createApp({ env, prisma, mailer: { send: async () => {} } });
+    expect((await request(app).delete("/api/revault/admin/intakes/RV-000000-XXXX").set(auth)).status).toBe(404);
+  });
+  it("lists, unsubscribes and deletes subscribers", async () => {
+    const { prisma, subscribers } = makePrisma();
+    const app = createApp({ env, prisma, mailer: { send: async () => {} } });
+    await request(app).post("/api/revault/newsletter").send({ email: "a@example.com", source: "blog" });
+    const list = await request(app).get("/api/revault/admin/newsletter").set(auth);
+    expect(list.status).toBe(200);
+    expect(list.body.total).toBe(1);
+    const stats = await request(app).get("/api/revault/admin/newsletter/stats").set(auth);
+    expect(stats.body).toMatchObject({ total: 1, active: 1, unsubscribed: 0 });
+    const id = subscribers[0].id as string;
+    const un = await request(app).post(`/api/revault/admin/newsletter/${id}/unsubscribe`).set(auth);
+    expect(un.status).toBe(200);
+    expect(subscribers[0].active).toBe(false);
+    expect((await request(app).delete(`/api/revault/admin/newsletter/${id}`).set(auth)).status).toBe(200);
+    expect(subscribers).toHaveLength(0);
+    expect((await request(app).delete(`/api/revault/admin/newsletter/${id}`).set(auth)).status).toBe(404);
+  });
+  it("returns a zero-filled timeseries and an overview with a previous window", async () => {
+    const { prisma } = makePrisma();
+    const app = createApp({ env, prisma, mailer: { send: async () => {} } });
+    const ts = await request(app).get("/api/revault/admin/analytics/timeseries?days=7").set(auth);
+    expect(ts.status).toBe(200);
+    expect(ts.body.series).toHaveLength(7);
+    expect(ts.body.series[6].day).toBe(new Date().toISOString().slice(0, 10));
+    const ov = await request(app).get("/api/revault/admin/analytics/overview?days=7").set(auth);
+    expect(ov.body).toMatchObject({ days: 7, totalViews: 0, byLocale: [], previous: { totalViews: 0, byLocale: [] } });
   });
 });
 

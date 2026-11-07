@@ -2,14 +2,13 @@
 
 import { Accordion, AccordionSummary, AccordionDetails, Typography } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { palette } from "@/theme/theme";
 
 export interface FaqItem {
   q: string;
   a: string;
 }
 
-export default function Faq({ items }: { items: FaqItem[] }) {
+export default function Faq({ items, headingLevel = "h3" }: { items: FaqItem[]; headingLevel?: "h2" | "h3" }) {
   return (
     <>
       {items.map((item) => (
@@ -25,8 +24,8 @@ export default function Faq({ items }: { items: FaqItem[] }) {
             "&:first-of-type": { borderTop: "1px solid var(--app-border-soft)" },
           }}
         >
-          <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ color: palette.accent }} />} sx={{ px: 0, py: 1 }}>
-            <Typography component="h3" sx={{ fontFamily: "var(--font-heading)", fontWeight: 650, fontSize: "1.08rem", pr: 2 }}>
+          <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ color: "var(--app-accent)" }} />} sx={{ px: 0, py: 1 }}>
+            <Typography variant="h6" component={headingLevel} sx={{ pr: 2 }}>
               {item.q}
             </Typography>
           </AccordionSummary>

@@ -8,6 +8,8 @@ import TrustStrip from "@/components/TrustStrip";
 import CtaBand from "@/components/CtaBand";
 import PageViewTracker from "@/components/PageViewTracker";
 import { Box, Typography } from "@mui/material";
+import JsonLd from "@/components/JsonLd";
+import { absoluteUrl } from "@/lib/seo";
 
 export async function generateMetadata({ params }: LocaleParams): Promise<Metadata> {
   const { locale } = await params;
@@ -24,9 +26,10 @@ export default async function HowItWorksPage({ params }: LocaleParams) {
   return (
     <>
       <PageViewTracker path="/how-it-works" locale={locale} />
+      <JsonLd data={{ "@context": "https://schema.org", "@type": "HowTo", name: t("title"), description: t("subtitle"), inLanguage: locale, step: steps.map((s, i) => ({ "@type": "HowToStep", position: i + 1, name: s.title, text: s.body, url: `${absoluteUrl("/how-it-works", locale)}#stap-${i + 1}` })) }} />
       <PageHero eyebrow={t("eyebrow")} title={t("title")} subtitle={t("subtitle")} />
       <TrustStrip />
-      <Section>
+      <Section title={t("stepsTitle")}>
         <Steps steps={steps} />
       </Section>
       <Section tone="surface" title={t("securityTitle")} lede={t("securityLede")}>

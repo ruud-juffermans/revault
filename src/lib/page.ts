@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import type { AppPathname, Locale } from "@/i18n/routing";
-import { buildAlternates, buildOpenGraph } from "@/lib/seo";
+import { buildAlternates, buildOpenGraph, buildTwitter } from "@/lib/seo";
 
 export type LocaleParams = { params: Promise<{ locale: Locale }> };
 
@@ -13,5 +13,6 @@ export async function staticPageMetadata(locale: Locale, href: AppPathname, ns: 
     description: t("metaDescription"),
     alternates: buildAlternates(href, locale),
     openGraph: buildOpenGraph(href, locale),
+    twitter: buildTwitter(locale),
   };
 }

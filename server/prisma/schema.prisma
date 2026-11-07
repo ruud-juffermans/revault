@@ -39,6 +39,20 @@ model Intake {
   @@index([status, createdAt])
 }
 
+/// Newsletter signups from the site (footer + blog). Local only: no third-party
+/// list provider. `active=false` keeps the row for history after an unsubscribe.
+model NewsletterSubscriber {
+  id             String    @id @default(cuid())
+  email          String    @unique
+  locale         String?
+  source         String    @default("web")
+  active         Boolean   @default(true)
+  createdAt      DateTime  @default(now())
+  unsubscribedAt DateTime?
+
+  @@index([active, createdAt])
+}
+
 model PageView {
   id        String   @id @default(cuid())
   path      String

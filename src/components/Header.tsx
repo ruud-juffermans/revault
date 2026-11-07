@@ -5,7 +5,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
-import { Link } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import type { AppPathname } from "@/i18n/routing";
 import LanguageSwitcher from "./LanguageSwitcher";
 import Logo from "./Logo";
@@ -16,6 +16,8 @@ type StaticPathname = Exclude<AppPathname, `${string}[${string}]${string}`>;
 export default function Header() {
   const t = useTranslations("nav");
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
 
   const navItems: { label: string; href: StaticPathname }[] = [
     { label: t("services"), href: "/services" },
@@ -36,7 +38,7 @@ export default function Header() {
 
           <Box sx={{ display: { xs: "none", lg: "flex" }, alignItems: "center", gap: 0.5 }}>
             {navItems.map((item) => (
-              <Button key={item.href} component={Link} href={item.href} sx={{ color: "text.primary", fontWeight: 500, px: 1.75 }}>
+              <Button key={item.href} component={Link} href={item.href} aria-current={isActive(item.href) ? "page" : undefined} sx={{ color: "text.primary", fontWeight: 500, px: 1.75, "&[aria-current=page]": { color: "var(--app-accent)", fontWeight: 600 } }}>
                 {item.label}
               </Button>
             ))}
@@ -49,9 +51,14 @@ export default function Header() {
             </Box>
           </Box>
 
-          <IconButton onClick={() => setOpen(true)} aria-label={t("openMenu")} sx={{ display: { lg: "none" } }}>
-            <MenuIcon />
-          </IconButton>
+          <Box sx={{ display: { xs: "flex", lg: "none" }, alignItems: "center", gap: 1 }}>
+            <Button component={Link} href="/contact" variant="contained" size="small">
+              {t("cta")}
+            </Button>
+            <IconButton onClick={() => setOpen(true)} aria-label={t("openMenu")} sx={{ width: 44, height: 44 }}>
+              <MenuIcon />
+            </IconButton>
+          </Box>
         </Toolbar>
       </Container>
 
@@ -64,7 +71,7 @@ export default function Header() {
         </Box>
         <Box sx={{ display: "flex", flexDirection: "column", gap: 0.5 }}>
           {navItems.map((item) => (
-            <Button key={item.href} component={Link} href={item.href} onClick={() => setOpen(false)} sx={{ justifyContent: "flex-start", color: "text.primary", fontSize: "1.05rem" }}>
+            <Button key={item.href} component={Link} href={item.href} onClick={() => setOpen(false)} aria-current={isActive(item.href) ? "page" : undefined} sx={{ justifyContent: "flex-start", color: "text.primary", fontSize: "1.05rem", "&[aria-current=page]": { color: "var(--app-accent)", fontWeight: 600 } }}>
               {item.label}
             </Button>
           ))}

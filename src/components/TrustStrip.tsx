@@ -7,9 +7,9 @@ export default function TrustStrip() {
   const t = useTranslations("trust");
   const items = ["noCureNoPay", "nonCustodial", "onSiteOrRemote", "contractFirst"] as const;
   return (
-    <Box sx={{ borderTop: "1px solid var(--app-border-soft)", borderBottom: "1px solid var(--app-border-soft)", py: 3 }}>
+    <Box component="aside" sx={{ borderTop: "1px solid var(--app-border-soft)", borderBottom: "1px solid var(--app-border-soft)", py: 3 }}>
       <Container>
-        <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr 1fr", md: "repeat(4, 1fr)" }, gap: 3 }}>
+        <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", md: "repeat(4, 1fr)" }, gap: 3 }}>
           {items.map((k) => (
             <Box key={k} sx={{ display: "flex", gap: 1.5, alignItems: "flex-start" }}>
               <CheckIcon sx={{ color: "var(--app-accent)", fontSize: 22, mt: 0.25 }} />

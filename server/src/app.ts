@@ -6,6 +6,7 @@ import { corsOrigins, type Env } from "./env.js";
 import type { Mailer } from "./lib/mail.js";
 import { intakeRouter } from "./routes/intake.js";
 import { analyticsRouter } from "./routes/analytics.js";
+import { newsletterRouter } from "./routes/newsletter.js";
 import { adminRouter } from "./routes/admin.js";
 
 export interface AppDeps {
@@ -25,7 +26,7 @@ export function createApp({ env, prisma, mailer, logger = console }: AppDeps) {
   app.use(
     cors({
       origin: origins.length ? origins : false,
-      methods: ["GET", "POST", "PATCH"],
+      methods: ["GET", "POST", "PATCH", "DELETE"],
       allowedHeaders: ["Content-Type", "Authorization"],
       maxAge: 600,
     }),
@@ -35,6 +36,7 @@ export function createApp({ env, prisma, mailer, logger = console }: AppDeps) {
   app.get("/health", (_req, res) => res.json({ ok: true }));
 
   app.use("/api/revault/intake", intakeRouter({ prisma, mailer, intakeEmail: env.INTAKE_EMAIL, logger }));
+  app.use("/api/revault/newsletter", newsletterRouter(prisma));
   app.use("/api/revault/analytics", analyticsRouter(prisma));
   app.use("/api/revault/admin", adminRouter(prisma, env.ADMIN_SERVICE_TOKEN));
 

@@ -92,7 +92,7 @@ default (unprefixed) locale; English lives under `/en`.
 | `/wallets/[slug]` | `/wallets/…` | `/en/wallets/…` | 8 wallet landing pages (§6.3) |
 | `/how-it-works` | `/werkwijze` | `/en/how-it-works` | 5-step process + security practices |
 | `/pricing` | `/tarieven` | `/en/pricing` | Standard 20% / custom, pricing FAQ |
-| `/about` | `/over-ons` | `/en/about` | Story, values |
+| `/about` | `/over-mij` | `/en/about` | Story, who's behind it (Ruud Juffermans, portrait + photo), values |
 | `/faq` | `/faq` | `/en/faq` | 12 questions, FAQPage JSON-LD |
 | `/blog`, `/blog/[slug]` | `/blog` | `/en/blog` | MDX posts, EN falls back to NL |
 | `/contact` | `/contact` | `/en/contact` | **Intake form** (§7) |
@@ -174,12 +174,13 @@ keeps the form contents.
 
 ## 8. Content & tone
 
-- Calm, concrete, plain language. Second person. No hype, no "guaranteed".
+- Calm, concrete, plain language. Second person for the visitor; **first person singular** for Revault ("I", "ik"): Revault is one person, Ruud Juffermans, and the copy never says "we", "our team" or implies staff.
 - Say what we **can't** do, prominently: stolen funds, wrong-address
   transactions, fully lost seed phrases.
 - Dutch copy uses formal *u*. English is neutral, not American-salesy.
-- No fabricated reviews, media logos, team photos or "200+ wallets" numbers
-  until they're real. Placeholders are removed, not invented.
+- No fabricated reviews, media logos or "200+ wallets" numbers until they're
+  real. Placeholders are removed, not invented. The only photos are real ones
+  of Ruud (`public/ruud-juffermans-*.jpg`).
 
 ## 9. Non-functional requirements
 

@@ -1,8 +1,21 @@
 import type { Metadata } from "next";
 import { routing, type AppPathname, type Locale } from "@/i18n/routing";
 
+if (process.env.NODE_ENV === "production" && !process.env.NEXT_PUBLIC_SITE_URL) {
+  // Every canonical, hreflang, og:url and JSON-LD url derives from this; a
+  // production build without it would canonicalize the whole site to localhost.
+  throw new Error("NEXT_PUBLIC_SITE_URL must be set for production builds (e.g. https://revault.nl)");
+}
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3001";
-export const SITE_NAME = "Revault — Crypto Wallet Recovery";
+export const SITE_NAME: Record<Locale, string> = { nl: "Revault — Crypto wallet herstel", en: "Revault — Crypto Wallet Recovery" };
+/** Stable @id for the organization node, referenced from every Service/Article. */
+export const ORG_ID = `${SITE_URL}/#organization`;
+export const OG_IMAGE_ALT: Record<Locale, string> = { nl: "Revault — Crypto wallet herstel", en: "Revault — Crypto wallet recovery" };
+
+/** The file-convention OG image lives at /{locale}/opengraph-image regardless of localePrefix. */
+export function ogImage(locale: Locale) {
+  return { url: `${SITE_URL}/${locale}/opengraph-image`, width: 1200, height: 630, alt: OG_IMAGE_ALT[locale] };
+}
 
 type PathParams = Record<string, string>;
 
@@ -42,7 +55,24 @@ export function buildOpenGraph(href: AppPathname, locale: Locale, params?: PathP
     type: "website",
     url: localizePathname(href, locale, params),
     locale: locale === "nl" ? "nl_NL" : "en_US",
-    siteName: SITE_NAME,
+    alternateLocale: locale === "nl" ? ["en_US"] : ["nl_NL"],
+    siteName: SITE_NAME[locale],
+    // Child metadata replaces the layout's openGraph object wholesale, so the
+    // image must be repeated here or inner pages ship without one.
+    images: [ogImage(locale)],
+  };
+}
+
+export function buildTwitter(locale: Locale): NonNullable<Metadata["twitter"]> {
+  return { card: "summary_large_image", images: [ogImage(locale).url] };
+}
+
+/** BreadcrumbList JSON-LD from a trail of (label, route) pairs. */
+export function breadcrumbJsonLd(locale: Locale, trail: { name: string; href: AppPathname; params?: PathParams }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: trail.map((t, i) => ({ "@type": "ListItem", position: i + 1, name: t.name, item: absoluteUrl(t.href, locale, t.params) })),
   };
 }
 

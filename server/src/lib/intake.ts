@@ -37,6 +37,22 @@ export const analyticsSchema = z.object({
   referrer: z.string().trim().max(2000).optional(),
 });
 
+/** Newsletter signup (footer + blog). Mirrors `subscribeNewsletter` in the client. */
+export const NEWSLETTER_SOURCES = ["footer", "blog", "web"] as const;
+export const newsletterSchema = z.object({
+  email: z.string().trim().toLowerCase().email().max(254),
+  locale: z.string().trim().regex(/^[a-z]{2}(-[A-Za-z]{2})?$/).optional(),
+  source: z.enum(NEWSLETTER_SOURCES).default("web"),
+  // Honeypot, as on the intake form.
+  website: z.string().max(200).optional(),
+});
+
+export const adminNewsletterQuery = z.object({
+  active: z.enum(["true", "false"]).transform((v) => v === "true").optional(),
+  limit: z.coerce.number().int().min(1).max(500).default(200),
+  offset: z.coerce.number().int().min(0).default(0),
+});
+
 export const adminListQuery = z.object({
   status: z.enum(STATUSES).optional(),
   limit: z.coerce.number().int().min(1).max(200).default(50),

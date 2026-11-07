@@ -1,7 +1,8 @@
 # revault
 
-Non-custodial crypto wallet recovery service (the Dutch/English counterpart to
-cryptoherstel.nl / cryptorecovers.com): a bilingual Next.js marketing site with
+Non-custodial crypto wallet recovery service run by one person, Ruud
+Juffermans (the Dutch/English counterpart to cryptoherstel.nl /
+cryptorecovers.com): a bilingual Next.js marketing site with
 service and wallet landing pages, a secret-free intake form, and an MDX blog,
 plus a small Express API (`server/`) for intake submissions, page-view
 analytics and their admin endpoints. Live at [revault.nl](https://revault.nl)
@@ -89,10 +90,21 @@ which the app 308-redirects to the apex) to `site` and `api.revault.nl` to
 | `GET`   | `/api/revault/admin/intakes?status=&limit=&offset=` | List intakes |
 | `GET`   | `/api/revault/admin/intakes/:reference`    | One intake |
 | `PATCH` | `/api/revault/admin/intakes/:reference`    | `{ status?, notes? }` — status: NEW → ASSESSED → VIABLE / NOT_VIABLE → AGREEMENT → RECOVERY → CLOSED |
+| `DELETE`| `/api/revault/admin/intakes/:reference`    | Remove an intake |
+| `GET`   | `/api/revault/admin/intakes/stats`         | Counts per status |
+| `POST`  | `/api/revault/newsletter`                  | Newsletter signup `{ email, locale?, source? }` → `200 { success }` (always, so it can't be used to check addresses) |
+| `GET`   | `/api/revault/admin/newsletter?active=&limit=&offset=` | List subscribers |
+| `GET`   | `/api/revault/admin/newsletter/stats`      | Totals + per source |
+| `POST`  | `/api/revault/admin/newsletter/:id/unsubscribe` | Mark inactive (row kept) |
+| `DELETE`| `/api/revault/admin/newsletter/:id`        | Remove a subscriber |
 | `GET`   | `/api/revault/admin/analytics/summary?days=30` | Views per path |
+| `GET`   | `/api/revault/admin/analytics/overview?days=30` | Totals per locale, current + previous window |
+| `GET`   | `/api/revault/admin/analytics/timeseries?days=30` | Views per UTC day, zero-filled |
 | `GET`   | `/health`                                  | Liveness |
 
-Admin routes take `Authorization: Bearer $ADMIN_SERVICE_TOKEN`. The intake
+Admin routes take `Authorization: Bearer $ADMIN_SERVICE_TOKEN`. They are
+consumed by the admin panel (`../admin-panel`, section "Revault"), which
+proxies them server-side with `REVAULT_API_URL` / `REVAULT_ADMIN_TOKEN`. The intake
 endpoint validates with Zod, drops honeypot submissions, rejects anything that
 looks like a seed phrase (≥ 8 consecutive BIP-39 words) or a private key (hex,
 WIF, xprv, keystore JSON — see PRD §7), is rate limited to 5 per IP per 15
