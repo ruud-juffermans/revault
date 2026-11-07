@@ -71,15 +71,54 @@ server on `:4000`.
 | `NEXT_PUBLIC_API_URL`  | Platform API origin; empty = same-origin + dev rewrite | *(empty)* |
 | `NEXT_PUBLIC_SITE_URL` | Public site URL (metadata, www→apex redirect)          | `http://localhost:3001` |
 
-## Deployment
+## Deployment (Dokploy)
 
 `docker-compose.yml` runs three services on the external `dokploy-network`:
 `site` (standalone Next.js image; build args bake `NEXT_PUBLIC_API_URL` and
-the site URL in), `server` (runs `prisma migrate deploy` on start) and `db`
-(Postgres 17 on a named volume). Traefik routes `revault.nl` (and `www.`,
-which the app 308-redirects to the apex) to `site` and `api.revault.nl` to
-`server`. Required env: `POSTGRES_PASSWORD`, `ADMIN_SERVICE_TOKEN`,
-`INTAKE_EMAIL`, plus `SMTP_*` to actually send mail (see `.env.example`).
+the site URL in), `server` (runs `prisma migrate deploy` on start, exposes
+`/health`) and `db` (Postgres 17 on a named volume). Only `site` and `server`
+join `dokploy-network`; `db` is reachable solely over the compose-internal
+network.
+
+1. **Create the service.** In Dokploy: Project → Create Service → **Compose**.
+   Provider: GitHub (or Git with the repo URL), branch `main`, compose path
+   `./docker-compose.yml`. Leave the compose type on `docker-compose`.
+2. **Environment.** In the Environment tab paste:
+
+   ```env
+   POSTGRES_PASSWORD=<openssl rand -hex 24>
+   ADMIN_SERVICE_TOKEN=<openssl rand -hex 32>
+   INTAKE_EMAIL=intake@revault.nl
+   MAIL_FROM=Revault <noreply@revault.nl>
+   SMTP_HOST=
+   SMTP_PORT=587
+   SMTP_USER=
+   SMTP_PASS=
+   NEXT_PUBLIC_SITE_URL=https://revault.nl
+   NEXT_PUBLIC_API_URL=https://api.revault.nl
+   ```
+
+   `CORS_ORIGINS` is derived from `NEXT_PUBLIC_SITE_URL`. With `SMTP_HOST`
+   empty, mail is logged to the server's stdout instead of sent.
+3. **Domains.** In the Domains tab add three entries, all with HTTPS +
+   Let's Encrypt:
+
+   | Host              | Service  | Container port |
+   | ----------------- | -------- | -------------- |
+   | `revault.nl`      | `site`   | 3000           |
+   | `www.revault.nl`  | `site`   | 3000           |
+   | `api.revault.nl`  | `server` | 4000           |
+
+   The app 308-redirects `www.` to the apex itself. Point the three DNS A
+   records at the Dokploy host first so the certificates can be issued.
+4. **Deploy.** Click Deploy; the first build takes a few minutes. Check
+   `https://api.revault.nl/health` → `{"ok":true}` and submit a test intake.
+5. **Auto-deploy.** Enable the webhook under Deployments → Auto Deploy (or
+   add Dokploy's webhook URL to the GitHub repo) so pushes to `main` redeploy.
+
+Changing `NEXT_PUBLIC_*` requires a rebuild (they are inlined at build time),
+not just a restart. The `ADMIN_SERVICE_TOKEN` is what the admin panel uses as
+`REVAULT_ADMIN_TOKEN`.
 
 ## API (`server/`)
 
