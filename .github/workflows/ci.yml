@@ -19,7 +19,12 @@ jobs:
           cache-dependency-path: package-lock.json
       - run: npm ci
       - run: npx tsc --noEmit
+      # NEXT_PUBLIC_SITE_URL is required at build time (robots.txt / sitemap);
+      # mirror the production values baked in by docker-compose.yml.
       - run: npm run build
+        env:
+          NEXT_PUBLIC_SITE_URL: https://revault.nl
+          NEXT_PUBLIC_API_URL: https://api.revault.nl
 
   server:
     runs-on: ubuntu-latest
