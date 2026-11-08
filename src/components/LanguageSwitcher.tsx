@@ -34,12 +34,12 @@ export default function LanguageSwitcher() {
         sx={{
           opacity: isPending ? 0.6 : 1,
           "& .MuiToggleButton-root": {
-            px: 1.75,
+            px: 1.25,
             py: 0,
-            minWidth: 40,
-            minHeight: 40,
+            minWidth: 32,
+            minHeight: 32,
             borderColor: "var(--app-border-strong)",
-            fontSize: "0.8rem",
+            fontSize: "0.72rem",
             fontWeight: 600,
             letterSpacing: "0.04em",
             "&.Mui-selected": { backgroundColor: "primary.main", color: "primary.contrastText", "&:hover": { backgroundColor: "primary.dark" } },

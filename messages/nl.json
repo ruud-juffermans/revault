@@ -53,7 +53,7 @@
     "privacy": "Privacy",
     "terms": "Voorwaarden",
     "rights": "Alle rechten voorbehouden.",
-    "legal": "Gevestigd in Nederland · KvK-nummer volgt"
+    "legal": "Gevestigd in Nederland"
   },
   "trust": {
     "noCureNoPay": {
@@ -577,15 +577,15 @@
     "byline": "Door {name}"
   },
   "newsletter": {
-    "title": "Af en toe een gids per e-mail",
-    "body": "Een kort bericht als ik een nieuwe gids publiceer over wallets, back-ups of herstelscams. Een paar keer per jaar, verder niets.",
+    "title": "Af en toe informatie per e-mail",
+    "body": "Een kort bericht als ik een nieuwe blog publiceer over wallets, back-ups of herstelscams.",
     "emailLabel": "E-mailadres",
     "submit": "Inschrijven",
     "submitting": "Verzenden…",
     "success": "Bedankt, u staat op de lijst.",
     "error": "Er is iets misgegaan. Probeer het over een moment opnieuw.",
     "invalidEmail": "Vul een geldig e-mailadres in.",
-    "privacy": "Uw adres wordt alleen door mij bewaard, nooit gedeeld, en uitschrijven kan met één e-mail."
+    "privacy": "Uitschrijven kan met één e-mail."
   },
   "contact": {
     "metaTitle": "Start een gratis beoordeling",

@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Box, Container, Typography } from "@mui/material";
 import CheckIcon from "@mui/icons-material/CheckCircleOutline";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { buildAlternates, buildOpenGraph, buildTwitter } from "@/lib/seo";
 import type { LocaleParams } from "@/lib/page";
 import { SERVICE_SLUGS } from "@/lib/services";
+import { ART } from "@/lib/art";
 import LinkButton from "@/components/LinkButton";
 import Section from "@/components/Section";
 import ServiceCard from "@/components/ServiceCard";
@@ -38,10 +40,35 @@ export default async function HomePage({ params }: LocaleParams) {
       <PageViewTracker path="/" locale={locale} />
       {/* FAQPage schema lives on /faq only; duplicating it here adds risk and no rich-result value. */}
 
-      {/* Hero */}
-      <Box sx={{ pt: { xs: 10, md: 16 }, pb: { xs: 8, md: 12 } }}>
+      {/* Hero: the safe dial, full-bleed. The block pins the dark colour
+          scheme (`data-mui-color-scheme`) so both the theme's CSS vars and
+          MUI's palette vars switch for everything inside it, whatever the
+          visitor's mode: buttons, overline and body copy stay legible on the
+          photo without per-element overrides. */}
+      <Box component="section" data-mui-color-scheme="dark" sx={{ position: "relative", isolation: "isolate", overflow: "hidden", backgroundColor: "var(--app-bg)", color: "var(--app-text-primary)", pt: { xs: 10, md: 18 }, pb: { xs: 10, md: 16 } }}>
+        <Image
+          src={ART.safeDial.src}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          style={{ objectFit: "cover", objectPosition: "72% 50%", zIndex: -2 }}
+        />
+        {/* Scrim: solid on the left where the copy sits, clearing to the dial on the right. Vertical on phones. */}
+        <Box
+          aria-hidden
+          sx={{
+            position: "absolute",
+            inset: 0,
+            zIndex: -1,
+            background: {
+              xs: "linear-gradient(180deg, rgba(12,15,20,0.78) 0%, rgba(12,15,20,0.9) 60%, rgba(12,15,20,0.97) 100%)",
+              md: "linear-gradient(90deg, #0C0F14 0%, rgba(12,15,20,0.96) 36%, rgba(12,15,20,0.55) 62%, rgba(12,15,20,0.12) 100%)",
+            },
+          }}
+        />
         <Container>
-          <Box sx={{ maxWidth: 820 }}>
+          <Box sx={{ maxWidth: { xs: 820, md: 660 } }}>
             <Typography variant="overline" sx={{ display: "block", mb: 2 }}>{t("hero.badge")}</Typography>
             <Typography variant="h1" sx={{ mb: 3 }}>{t("hero.title")}</Typography>
             <Typography variant="subtitle1" sx={{ mb: 2, maxWidth: 640 }}>{t("hero.subtitle")}</Typography>

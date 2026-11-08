@@ -13,7 +13,7 @@ export default function ThemeSwitcher() {
   const [mounted, setMounted] = React.useState(false);
   React.useEffect(() => setMounted(true), []);
 
-  if (!mounted || !mode) return <Skeleton variant="circular" width={40} height={40} />;
+  if (!mounted || !mode) return <Skeleton variant="circular" width={32} height={32} />;
 
   const effective = mode === "system" ? (systemMode ?? "light") : mode;
   const label = effective === "dark" ? t("themeLight") : t("themeDark");
@@ -24,7 +24,7 @@ export default function ThemeSwitcher() {
         size="small"
         onClick={() => setMode(effective === "dark" ? "light" : "dark")}
         aria-label={label}
-        sx={{ width: 40, height: 40, border: "1px solid var(--app-border-strong)", color: "text.secondary", "& svg": { fontSize: 20 } }}
+        sx={{ width: 32, height: 32, border: "1px solid var(--app-border-strong)", color: "text.secondary", "& svg": { fontSize: 18 } }}
       >
         {effective === "dark" ? <LightModeOutlinedIcon /> : <DarkModeOutlinedIcon />}
       </IconButton>

@@ -53,7 +53,7 @@
     "privacy": "Privacy",
     "terms": "Terms",
     "rights": "All rights reserved.",
-    "legal": "Registered in the Netherlands · KvK pending"
+    "legal": "Registered in the Netherlands"
   },
   "trust": {
     "noCureNoPay": {
@@ -577,15 +577,15 @@
     "byline": "By {name}"
   },
   "newsletter": {
-    "title": "Occasional guides by e-mail",
-    "body": "A short e-mail when I publish a new guide on wallets, backups or recovery scams. A few times a year, nothing else.",
+    "title": "Occasional information by e-mail",
+    "body": "A short e-mail when I publish a new blog on wallets, backups or recovery scams.",
     "emailLabel": "E-mail address",
     "submit": "Subscribe",
     "submitting": "Sending…",
     "success": "Thanks, you're on the list.",
     "error": "Something went wrong. Please try again in a moment.",
     "invalidEmail": "Enter a valid e-mail address.",
-    "privacy": "Your address is stored by me only, never shared, and you can unsubscribe with one e-mail."
+    "privacy": "You can unsubscribe with one e-mail."
   },
   "contact": {
     "metaTitle": "Start a free assessment",
