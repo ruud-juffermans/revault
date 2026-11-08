@@ -93,7 +93,7 @@ export default async function LocaleLayout({ children, params }: { children: Rea
     <html lang={locale} className={`${headingFont.variable} ${bodyFont.variable}`} suppressHydrationWarning>
       <head>
         {apiOrigin ? <link rel="preconnect" href={apiOrigin} /> : null}
-        <InitColorSchemeScript defaultMode="system" attribute="data-mui-color-scheme" modeStorageKey="revault-color-mode" />
+        <InitColorSchemeScript defaultMode="light" attribute="data-mui-color-scheme" modeStorageKey="revault-color-mode" />
       </head>
       <body style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
         <NextIntlClientProvider>

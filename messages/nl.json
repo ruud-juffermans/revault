@@ -598,7 +598,7 @@
       "email": "E-mail",
       "phone": "Telefoon (optioneel)",
       "estimatedValue": "Geschatte waarde (optioneel)",
-      "estimatedValueHelp": "Een ruwe bandbreedte is voldoende.",
+      "estimatedValueHelp": "Een ruwe schatting is voldoende.",
       "walletType": "Type wallet",
       "walletSoftware": "Walletsoftware of apparaat",
       "issueType": "Wat is het probleem?",

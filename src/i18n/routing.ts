@@ -4,6 +4,8 @@ export const routing = defineRouting({
   locales: ["nl", "en"],
   defaultLocale: "nl",
   localePrefix: "as-needed",
+  // Always land on Dutch; do not redirect based on Accept-Language. Visitors pick English via the switcher.
+  localeDetection: false,
   pathnames: {
     "/": "/",
     "/services": { nl: "/wallet-herstel", en: "/wallet-recovery" },
