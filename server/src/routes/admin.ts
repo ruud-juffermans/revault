@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { Prisma, type PrismaClient } from "@prisma/client";
 import { adminListQuery, adminNewsletterQuery, adminPatchSchema, STATUSES } from "../lib/intake.js";
+import { groupBySection, referrerKind } from "../lib/traffic.js";
 import { requireServiceToken } from "../middleware/serviceToken.js";
 
 /**
@@ -149,6 +150,47 @@ export function adminRouter(prisma: PrismaClient, token: string): Router {
       }),
     ]);
     res.json({ days, total, byPath: byPath.map((r) => ({ path: r.path, views: r._count._all })) });
+  });
+
+  /** Views per path, nested under the site section each path belongs to. */
+  router.get("/analytics/top-pages", async (req, res) => {
+    const days = clampDays(req.query.days);
+    const byPath = await prisma.pageView.groupBy({
+      by: ["path"],
+      where: { createdAt: { gte: cutoff(days) } },
+      _count: { _all: true },
+      orderBy: { _count: { path: "desc" } },
+      take: 200,
+    });
+    res.json({ sections: groupBySection(byPath.map((r) => ({ path: r.path, count: r._count._all }))) });
+  });
+
+  /**
+   * Where traffic comes from: referrer URLs collapsed onto their host (in SQL,
+   * so the LIMIT applies to hosts) and labelled linkedin / google / internal / ….
+   * No referrer at all is "direct".
+   */
+  router.get("/analytics/top-referrers", async (req, res) => {
+    const days = clampDays(req.query.days);
+    const rows = await prisma.$queryRaw<Array<{ host: string; count: bigint }>>(
+      Prisma.sql`
+        SELECT COALESCE(
+                 regexp_replace(
+                   lower(substring(referrer from '^[A-Za-z][A-Za-z0-9+.-]*://([^/?#:]+)')),
+                   '^www\\.', ''),
+                 NULLIF(lower(trim(referrer)), ''),
+                 '') AS host,
+               COUNT(*)::bigint AS count
+        FROM "PageView"
+        WHERE "createdAt" >= ${cutoff(days)}
+        GROUP BY host
+        ORDER BY count DESC, host ASC
+        LIMIT 100
+      `,
+    );
+    res.json({
+      referrers: rows.map((r) => ({ host: r.host === "" ? "direct" : r.host, kind: referrerKind(r.host), count: Number(r.count) })),
+    });
   });
 
   /** Totals per locale for the window and for the window before it. */

@@ -240,6 +240,42 @@ describe("admin API: stats, newsletter and analytics", () => {
   });
 });
 
+describe("admin API: top pages and referrers", () => {
+  const auth = { Authorization: `Bearer ${env.ADMIN_SERVICE_TOKEN}` };
+  it("nests paths under their section, Dutch and English slugs together", async () => {
+    const { prisma, mock } = makePrisma();
+    mock.pageView.groupBy.mockResolvedValueOnce([
+      { path: "/", _count: { _all: 5 } },
+      { path: "/wallet-herstel/bitcoin-core", _count: { _all: 4 } },
+      { path: "/en/wallet-recovery", _count: { _all: 3 } },
+      { path: "/voorwaarden", _count: { _all: 1 } },
+    ]);
+    const app = createApp({ env, prisma, mailer: { send: async () => {} } });
+    const res = await request(app).get("/api/revault/admin/analytics/top-pages?days=7").set(auth);
+    expect(res.status).toBe(200);
+    expect(res.body.sections.map((s: { section: string; count: number }) => [s.section, s.count])).toEqual([["services", 7], ["home", 5], ["other", 1]]);
+    expect(res.body.sections[0]).toMatchObject({ label: "Wallet recovery", pages: [{ path: "/wallet-herstel/bitcoin-core", count: 4 }, { path: "/en/wallet-recovery", count: 3 }] });
+  });
+  it("labels referrer hosts", async () => {
+    const { prisma, mock } = makePrisma();
+    mock.$queryRaw.mockResolvedValueOnce([
+      { host: "", count: 9n },
+      { host: "google.nl", count: 4n },
+      { host: "revault.nl", count: 2n },
+      { host: "duckduckgo.com", count: 1n },
+    ]);
+    const app = createApp({ env, prisma, mailer: { send: async () => {} } });
+    const res = await request(app).get("/api/revault/admin/analytics/top-referrers?days=7").set(auth);
+    expect(res.status).toBe(200);
+    expect(res.body.referrers).toEqual([
+      { host: "direct", kind: "direct", count: 9 },
+      { host: "google.nl", kind: "google", count: 4 },
+      { host: "revault.nl", kind: "internal", count: 2 },
+      { host: "duckduckgo.com", kind: "other", count: 1 },
+    ]);
+  });
+});
+
 describe("CORS", () => {
   it("allows the configured origin only", async () => {
     const { prisma } = makePrisma();
